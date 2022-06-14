@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Dms</string>
+
+    <string name="welcome_string_1">Welcome to DMS \nWhere you maintain your \nCredit score</string>
+    <string name="welcome_button_string">I\'m new here</string>
+    <string name="login_string">Login</string>
+    <string name="lookup_string">Let’s check whether you \nHave an account</string>
+    <string name="number_hint">Eg. 712345678</string>
+    <string name="continue_string">Continue</string>
+    <string name="create_account_string">Hey there! We love new \nCustomers let’s get to know you</string>
+    <string name="instruction_1_string">Please fill in the following details</string>
+    <string name="security_string"><![CDATA[We would like to make sure \nYour account is safe & secure]]></string>
+    <string name="instruction_2_string">Select and answer some of the security questions</string>
+    <string name="resend_code"><u>Resend code</u> </string>
+</resources>
