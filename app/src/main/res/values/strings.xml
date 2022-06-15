@@ -12,4 +12,6 @@
     <string name="security_string"><![CDATA[We would like to make sure \nYour account is safe & secure]]></string>
     <string name="instruction_2_string">Select and answer some of the security questions</string>
     <string name="resend_code"><u>Resend code</u> </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

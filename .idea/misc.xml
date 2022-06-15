@@ -3,7 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/new_here_bg_btn.xml" value="0.1395" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.178125" />
+        <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/onboarding_item_layout.xml" value="0.19375" />
       </map>
     </option>
   </component>
