@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.dmssystem.dms.R
@@ -26,9 +28,19 @@ class LandingFragment : Fragment() {
         setOnBoardingItems()
         setUpIndicators()
         setCurrentIndicator(0)
+
+        loadAnimation()
         return binding.root
     }
 
+
+    private fun loadAnimation() {
+
+        val welcomeButtonAnimation = AnimationUtils.loadAnimation(context, R.anim.welcome_button_anim)
+
+        binding.newHereBtn.startAnimation(welcomeButtonAnimation)
+        binding.indicatorContainer.startAnimation(welcomeButtonAnimation)
+    }
 
     private fun setOnBoardingItems() {
 
