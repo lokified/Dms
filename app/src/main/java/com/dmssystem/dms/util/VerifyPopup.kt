@@ -11,7 +11,7 @@ import com.dmssystem.dms.R
 class VerifyPopup {
 
     private lateinit var dialogBuilder: AlertDialog.Builder
-    private lateinit var dialog: AlertDialog
+     lateinit var dialog: AlertDialog
 
     val start = 30_000L
     var timer = start

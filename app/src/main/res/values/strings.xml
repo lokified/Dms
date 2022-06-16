@@ -19,5 +19,17 @@
     <string name="nickname">What is your nickname?</string>
     <string name="verifying_your_account">Verifying your account</string>
     <string name="verification_code">We’ve sent a verification code to +2547123***78</string>
+    <string name="string_1">1</string>
+    <string name="string_2">2</string>
+    <string name="string_3">3</string>
+    <string name="string_4">4</string>
+    <string name="string_5">5</string>
+    <string name="string_6">6</string>
+    <string name="string_7">7</string>
+    <string name="string_8">8</string>
+    <string name="string_9">9</string>
+    <string name="string_0">0</string>
+    <string name="create_4_digit">Create a new 4 digit pin</string>
+    <string name="forgot_pin">forgot pin?</string>
 
 </resources>

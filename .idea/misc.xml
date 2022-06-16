@@ -7,12 +7,18 @@
         <entry key="app/src/main/res/drawable/continue_btn_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_cancel.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/ic_delete.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/ic_person_icon.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/inactive_pin_bg.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/inactive_pinview_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/new_here_bg_btn.xml" value="0.1395" />
         <entry key="app/src/main/res/layout/account_verify_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.178125" />
+        <entry key="app/src/main/res/layout/app_logo_imageview.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_pin.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_secuity_questions.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/list_security_question_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/onboarding_item_layout.xml" value="0.19375" />

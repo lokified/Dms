@@ -27,5 +27,14 @@
         android:id="@+id/securityQuestionsFragment"
         android:name="com.dmssystem.dms.ui.createaccount.security.SecurityQuestionsFragment"
         android:label="fragment_secuity_questions"
-        tools:layout="@layout/fragment_security_questions" />
+        tools:layout="@layout/fragment_security_questions" >
+        <action
+            android:id="@+id/action_securityQuestionsFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.pin.PinFragment"
+        android:label="PinFragment"
+        tools:layout="@layout/fragment_pin"/>
 </navigation>

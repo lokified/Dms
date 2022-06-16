@@ -1,6 +1,7 @@
 package com.dmssystem.dms.ui.createaccount.security
 
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
 import com.dmssystem.dms.util.VerifyPopup
@@ -16,6 +18,7 @@ class SecurityQuestionsFragment : Fragment() {
 
     private lateinit var binding: FragmentSecurityQuestionsBinding
     private var isClicked: Boolean = false
+    val popup = VerifyPopup()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +37,13 @@ class SecurityQuestionsFragment : Fragment() {
 
         binding.continueBtn.setOnClickListener {
 
-            val popup = VerifyPopup()
+            Handler().postDelayed( Runnable {
+
+                popup.dialog.dismiss()
+                val action = SecurityQuestionsFragmentDirections.actionSecurityQuestionsFragmentToPinFragment()
+                findNavController().navigate(action)
+            }, 6000)
+
             popup.createVerifyPopup(context)
             popup.timeCountdown.start()
         }
