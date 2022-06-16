@@ -10,6 +10,7 @@ import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
+import com.dmssystem.dms.util.VerifyPopup
 
 class SecurityQuestionsFragment : Fragment() {
 
@@ -30,6 +31,13 @@ class SecurityQuestionsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setUpQuestions()
         setUpAnswerEditText()
+
+        binding.continueBtn.setOnClickListener {
+
+            val popup = VerifyPopup()
+            popup.createVerifyPopup(context)
+            popup.timeCountdown.start()
+        }
     }
 
     private fun setUpQuestions() {

@@ -17,5 +17,7 @@
     <string name="favorite_pet">What is your favorite pet?</string>
     <string name="favorite_month">Which is your favorite month?</string>
     <string name="nickname">What is your nickname?</string>
+    <string name="verifying_your_account">Verifying your account</string>
+    <string name="verification_code">We’ve sent a verification code to +2547123***78</string>
 
 </resources>
