@@ -31,5 +31,6 @@
     <string name="string_0">0</string>
     <string name="create_4_digit">Create a new 4 digit pin</string>
     <string name="forgot_pin">forgot pin?</string>
+    <string name="phone_number">Phone Number</string>
 
 </resources>

@@ -42,6 +42,11 @@ class LandingFragment : Fragment() {
             val action = LandingFragmentDirections.actionLandingFragmentToCreateAccountFragment()
             findNavController().navigate(action)
         }
+
+        binding.loginTxt.setOnClickListener {
+            val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment()
+            findNavController().navigate(action)
+        }
     }
 
 

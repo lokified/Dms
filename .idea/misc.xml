@@ -18,6 +18,7 @@
         <entry key="app/src/main/res/layout/app_logo_imageview.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_look_up.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_pin.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_secuity_questions.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/list_security_question_layout.xml" value="0.19375" />

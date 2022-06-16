@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_landingFragment_to_createAccountFragment"
             app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_lookUpFragment"
+            app:destination="@id/lookUpFragment" />
     </fragment>
     <fragment
         android:id="@+id/createAccountFragment"
@@ -37,4 +40,9 @@
         android:name="com.dmssystem.dms.ui.createaccount.pin.PinFragment"
         android:label="PinFragment"
         tools:layout="@layout/fragment_pin"/>
+    <fragment
+        android:id="@+id/lookUpFragment"
+        android:name="com.dmssystem.dms.ui.lookup.LookUpFragment"
+        android:label="fragment_look_up"
+        tools:layout="@layout/fragment_look_up" />
 </navigation>
