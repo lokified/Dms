@@ -32,5 +32,7 @@
     <string name="create_4_digit">Create a new 4 digit pin</string>
     <string name="forgot_pin">forgot pin?</string>
     <string name="phone_number">Phone Number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

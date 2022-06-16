@@ -44,5 +44,14 @@
         android:id="@+id/lookUpFragment"
         android:name="com.dmssystem.dms.ui.lookup.LookUpFragment"
         android:label="fragment_look_up"
-        tools:layout="@layout/fragment_look_up" />
+        tools:layout="@layout/fragment_look_up" >
+        <action
+            android:id="@+id/action_lookUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dmssystem.dms.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>
