@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/answer_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/continue_btn_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/new_here_bg_btn.xml" value="0.1395" />
@@ -10,6 +11,8 @@
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.178125" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_secuity_questions.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/list_security_question_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/onboarding_item_layout.xml" value="0.19375" />
       </map>
     </option>
