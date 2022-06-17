@@ -9,5 +9,49 @@
         android:id="@+id/landingFragment"
         android:name="com.dmssystem.dms.ui.landing.LandingFragment"
         android:label="fragment_landing"
-        tools:layout="@layout/fragment_landing" />
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_lookUpFragment"
+            app:destination="@id/lookUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" >
+        <action
+            android:id="@+id/action_createAccountFragment_to_securityQuestionsFragment"
+            app:destination="@id/securityQuestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/securityQuestionsFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.security.SecurityQuestionsFragment"
+        android:label="fragment_secuity_questions"
+        tools:layout="@layout/fragment_security_questions" >
+        <action
+            android:id="@+id/action_securityQuestionsFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.pin.PinFragment"
+        android:label="PinFragment"
+        tools:layout="@layout/fragment_pin"/>
+    <fragment
+        android:id="@+id/lookUpFragment"
+        android:name="com.dmssystem.dms.ui.lookup.LookUpFragment"
+        android:label="fragment_look_up"
+        tools:layout="@layout/fragment_look_up" >
+        <action
+            android:id="@+id/action_lookUpFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dmssystem.dms.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
 </navigation>

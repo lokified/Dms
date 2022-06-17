@@ -12,6 +12,27 @@
     <string name="security_string"><![CDATA[We would like to make sure \nYour account is safe & secure]]></string>
     <string name="instruction_2_string">Select and answer some of the security questions</string>
     <string name="resend_code"><u>Resend code</u> </string>
+    <string name="favorite_song">What is your favorite song?</string>
+    <string name="favorite_color">What is your favorite color?</string>
+    <string name="favorite_pet">What is your favorite pet?</string>
+    <string name="favorite_month">Which is your favorite month?</string>
+    <string name="nickname">What is your nickname?</string>
+    <string name="verifying_your_account">Verifying your account</string>
+    <string name="verification_code">We’ve sent a verification code to +2547123***78</string>
+    <string name="string_1">1</string>
+    <string name="string_2">2</string>
+    <string name="string_3">3</string>
+    <string name="string_4">4</string>
+    <string name="string_5">5</string>
+    <string name="string_6">6</string>
+    <string name="string_7">7</string>
+    <string name="string_8">8</string>
+    <string name="string_9">9</string>
+    <string name="string_0">0</string>
+    <string name="create_4_digit">Create a new 4 digit pin</string>
+    <string name="forgot_pin">forgot pin?</string>
+    <string name="phone_number">Phone Number</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -10,6 +10,7 @@ import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLandingBinding
@@ -31,6 +32,21 @@ class LandingFragment : Fragment() {
 
         loadAnimation()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.newHereBtn.setOnClickListener {
+
+            val action = LandingFragmentDirections.actionLandingFragmentToCreateAccountFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.loginTxt.setOnClickListener {
+            val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment()
+            findNavController().navigate(action)
+        }
     }
 
 

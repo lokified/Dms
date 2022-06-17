@@ -30,6 +30,25 @@
     </style>
 
 
+    <!-- pin views theme theme -->
+    <style name="pin_views">
+        <item name="android:layout_marginStart">12dp</item>
+        <item name="android:background">@drawable/inactive_pinview_bg</item>
+        <item name="android:layout_marginEnd">12dp</item>
+        <item name="android:layout_height">16dp</item>
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_width">16dp</item>
+    </style>
+
+    <!-- keypad theme theme -->
+    <style name="keypad_buttons_style" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textSize">32sp</item>
+        <item name="android:textColor">#000</item>
+        <item name="android:letterSpacing">-0.03</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
 
     <!-- verify popup theme -->
     <style name="Theme.App.VerifyPopup" parent="Theme.MaterialComponents.DayNight.DialogWhenLarge">
