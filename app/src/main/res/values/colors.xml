@@ -11,4 +11,5 @@
     <color name="colorPrimary">#59B2B9</color>
     <color name="colorSecondary">#707070</color>
     <color name="hintColor">#525252</color>
+    <color name="helperTextColor">#A31515</color>
 </resources>

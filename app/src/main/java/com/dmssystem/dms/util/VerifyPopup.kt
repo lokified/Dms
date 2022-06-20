@@ -12,9 +12,10 @@ class VerifyPopup {
 
     private lateinit var dialogBuilder: AlertDialog.Builder
      lateinit var dialog: AlertDialog
+     lateinit var numberText: TextView
 
-    val start = 30_000L
-    var timer = start
+    private val start = 30_000L
+    private var timer = start
     lateinit var timeCountdown: CountDownTimer
 
     fun createVerifyPopup(context: Context?): AlertDialog {
@@ -24,6 +25,7 @@ class VerifyPopup {
 
         val cancelButton: ImageView = view.findViewById(R.id.popup_cancel)
         val verifyText: TextView = view.findViewById(R.id.resend_verify_txt)
+        numberText = view.findViewById(R.id.number_verify_txt)
 
         dialogBuilder.setView(view)
         dialog = dialogBuilder.create()

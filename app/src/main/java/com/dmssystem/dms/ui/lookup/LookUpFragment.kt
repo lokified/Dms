@@ -32,17 +32,42 @@ class LookUpFragment : Fragment() {
 
         binding.lookupBtn.setOnClickListener {
 
-            Handler().postDelayed(Runnable {
+            val phoneNumber = binding.etPhoneNumber.text.toString()
 
-                popup.dialog.dismiss()
+            if (validatePhoneNumberInput()) {
 
-                val action = LookUpFragmentDirections.actionLookUpFragmentToLoginFragment()
-                findNavController().navigate(action)
+                binding.lPhoneNumber.helperText = null
 
-            }, 6000)
+                Handler().postDelayed(Runnable {
 
-            popup.createVerifyPopup(context)
-            popup.timeCountdown.start()
+                    popup.dialog.dismiss()
+                    popup.timeCountdown.cancel()
+
+                    val action = LookUpFragmentDirections.actionLookUpFragmentToLoginFragment()
+                    findNavController().navigate(action)
+
+                }, 6000)
+
+                popup.createVerifyPopup(context)
+                popup.numberText.text = "We’ve sent a verification code to $phoneNumber"
+                popup.timeCountdown.start()
+            }
+
         }
+
+        binding.lookupCancel.setOnClickListener {
+
+            findNavController().navigateUp()
+        }
+    }
+
+    private fun validatePhoneNumberInput(): Boolean {
+
+        if (binding.etPhoneNumber.text.isNullOrEmpty()) {
+            binding.lPhoneNumber.helperText = "Please enter your phone number"
+            return false
+        }
+
+        return true
     }
 }
