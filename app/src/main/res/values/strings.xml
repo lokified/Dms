@@ -34,5 +34,9 @@
     <string name="phone_number">Phone Number</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="select_question_1">Select Question 1</string>
+    <string name="select_question_2">Select Question 2</string>
+    <string name="select_question_3">Select Question 3</string>
+    <string name="input_answer">Please input your answer</string>
 
 </resources>

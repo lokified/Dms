@@ -8,12 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentPinBinding
 
 class PinFragment : Fragment() {
 
     private lateinit var binding: FragmentPinBinding
+    private val args: PinFragmentArgs by navArgs()
 
     private var pin = ""
 
@@ -33,6 +35,14 @@ class PinFragment : Fragment() {
         binding = FragmentPinBinding.inflate(inflater, container, false)
         initUI()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val userName = args.userName
+
+        binding.tvUserName.text = userName
     }
 
     private fun initUI() {

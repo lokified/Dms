@@ -9,7 +9,9 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
+import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
 import com.dmssystem.dms.util.VerifyPopup
@@ -17,8 +19,8 @@ import com.dmssystem.dms.util.VerifyPopup
 class SecurityQuestionsFragment : Fragment() {
 
     private lateinit var binding: FragmentSecurityQuestionsBinding
-    private var isClicked: Boolean = false
-    val popup = VerifyPopup()
+    private val args: SecurityQuestionsFragmentArgs by navArgs()
+    private val popup = VerifyPopup()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,17 +37,33 @@ class SecurityQuestionsFragment : Fragment() {
         setUpQuestions()
         setUpAnswerEditText()
 
+        val userName = args.userName
+        val phoneNumber = args.phoneNumber
+
         binding.continueBtn.setOnClickListener {
 
-            Handler().postDelayed( Runnable {
+            if (validateForm()) {
 
-                popup.dialog.dismiss()
-                val action = SecurityQuestionsFragmentDirections.actionSecurityQuestionsFragmentToPinFragment()
-                findNavController().navigate(action)
-            }, 6000)
+                hideErrorMessage()
 
-            popup.createVerifyPopup(context)
-            popup.timeCountdown.start()
+                Handler().postDelayed( Runnable {
+
+                    popup.dialog.dismiss()
+                    popup.timeCountdown.cancel()
+
+                    val action = SecurityQuestionsFragmentDirections.actionSecurityQuestionsFragmentToPinFragment(userName, phoneNumber)
+                    findNavController().navigate(action)
+                }, 6000)
+
+                popup.createVerifyPopup(context)
+                popup.numberText.text = "We’ve sent a verification code to $phoneNumber"
+                popup.timeCountdown.start()
+            }
+
+        }
+
+        binding.backArrow.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 
@@ -59,64 +77,65 @@ class SecurityQuestionsFragment : Fragment() {
         )
 
         val adapter = ArrayAdapter(requireContext(), R.layout.list_security_question_layout, questions)
+        (binding.lQuestion1.editText as? AutoCompleteTextView)?.setAdapter(adapter)
         (binding.lQuestion2.editText as? AutoCompleteTextView)?.setAdapter(adapter)
         (binding.lQuestion3.editText as? AutoCompleteTextView)?.setAdapter(adapter)
     }
 
     private fun setUpAnswerEditText() {
 
-        binding.etQuestion1.setOnClickListener {
-
-            toggleAnswerEditText1()
-        }
+        binding.etQuestion1.setOnClickListener { showAnswerEditText() }
 
         binding.etQuestion2.setOnClickListener { showAnswerEditText() }
 
         binding.etQuestion3.setOnDismissListener { showAnswerEditText() }
     }
 
-    private fun toggleAnswerEditText1() {
-
-        if(isClicked)  {
-            hideAnswerEditText1()
-        }
-        else {
-            showAnswerEditText1()
-        }
-    }
 
     private fun showAnswerEditText() {
 
-        when{
-
-            !binding.etAnswerQ2.isVisible -> {
-                binding.etAnswerQ2.visibility = View.VISIBLE
-                binding.etAnswerQ1.visibility = View.GONE
-            }
-
-            !binding.etAnswerQ3.isVisible -> {
-                binding.etAnswerQ3.visibility = View.VISIBLE
-                binding.etAnswerQ2.visibility = View.GONE
-                binding.etAnswerQ1.visibility = View.GONE
-            }
-        }
-    }
-
-    private fun showAnswerEditText1() {
-
-        if (!binding.etAnswerQ1.isVisible) {
+        if(!binding.etAnswerQ1.isVisible){
             binding.etAnswerQ1.visibility = View.VISIBLE
         }
-        isClicked = true
 
-    }
-
-    private fun hideAnswerEditText1() {
-
-        if (binding.etAnswerQ1.isVisible) {
-            binding.etAnswerQ1.visibility = View.GONE
+        else if(!binding.etAnswerQ2.isVisible ) {
+            binding.etAnswerQ2.visibility = View.VISIBLE
         }
 
-        isClicked = false
+        else if(!binding.etAnswerQ3.isVisible) {
+            binding.etAnswerQ3.visibility = View.VISIBLE
+        }
+    }
+
+
+    private fun validateForm(): Boolean {
+
+        if (binding.etAnswerQ1.text.isNullOrEmpty()) {
+            binding.etAnswerQ1.visibility = View.VISIBLE
+            binding.tvErrorMessage1.visibility = View.VISIBLE
+            binding.tvErrorMessage1.text = getString(R.string.input_answer)
+            return false
+        }
+        if (binding.etAnswerQ2.text.isNullOrEmpty()) {
+            binding.etAnswerQ2.visibility = View.VISIBLE
+            binding.tvErrorMessage2.visibility = View.VISIBLE
+            binding.tvErrorMessage2.text = getString(R.string.input_answer)
+            return false
+        }
+        if (binding.etAnswerQ3.text.isNullOrEmpty()) {
+            binding.etAnswerQ3.visibility = View.VISIBLE
+            binding.tvErrorMessage3.visibility = View.VISIBLE
+            binding.tvErrorMessage3.text = getString(R.string.input_answer)
+            return false
+        }
+
+        return true
+    }
+
+    private fun hideErrorMessage() {
+
+        binding.tvErrorMessage1.text = null
+        binding.tvErrorMessage2.text = null
+        binding.tvErrorMessage3.text = null
     }
 }
