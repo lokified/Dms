@@ -11,11 +11,9 @@ import com.dmssystem.dms.R
 class VerifyPopup {
 
     private lateinit var dialogBuilder: AlertDialog.Builder
-     lateinit var dialog: AlertDialog
-     lateinit var numberText: TextView
+    lateinit var dialog: AlertDialog
+    lateinit var numberText: TextView
 
-    private val start = 30_000L
-    private var timer = start
     lateinit var timeCountdown: CountDownTimer
 
     fun createVerifyPopup(context: Context?): AlertDialog {
@@ -31,16 +29,8 @@ class VerifyPopup {
         dialog = dialogBuilder.create()
 
 
-        timeCountdown = object: CountDownTimer(timer, 1000) {
-            override fun onTick(millisUntilFinished: Long) {
-                timer = millisUntilFinished
-                setTextTimer()
-            }
+        setCountDownTimer(verifyText)
 
-            override fun onFinish() {}
-        }
-
-        verifyText.text = "Relax we will automatically verify the code in ${setTextTimer()}"
 
         cancelButton.setOnClickListener {
 
@@ -52,14 +42,27 @@ class VerifyPopup {
     }
 
 
-    //timer format
-    private fun setTextTimer(): String {
+    private fun setCountDownTimer(verifyText: TextView) {
 
-        val m = (timer / 1000) / 60
-        val s = (timer / 1000) % 60
+        timeCountdown = object :CountDownTimer(30000, 1000) {
 
-        val format = String.format("%02d:%02d", m, s)
+            override fun onTick(millisUntilFinished: Long) {
 
-        return format
+                val min: Long = millisUntilFinished / 60000 % 60
+                val sec: Long = millisUntilFinished / 1000 % 60
+
+                verifyText.text = "Relax we will automatically verify the code in ${makeTimeString(min, sec)}"
+            }
+
+            override fun onFinish() {
+
+                verifyText.text= "Relax we will automatically verify the code in 00:00"
+            }
+        }
     }
+
+
+    //timer format
+    private fun makeTimeString(minutes: Long, seconds: Long): String  =
+        String.format("%02d:%02d",  minutes, seconds)
 }
