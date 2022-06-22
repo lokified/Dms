@@ -9,12 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLoginBinding
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
+    private val args: LoginFragmentArgs by navArgs()
 
     private var pin = ""
 
@@ -34,6 +36,14 @@ class LoginFragment : Fragment() {
         binding = FragmentLoginBinding.inflate(inflater, container, false)
         initUI()
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        if (args.islandingFragment) {
+            binding.tvUserName.text = args.userName
+        }
     }
 
     private fun initUI() {

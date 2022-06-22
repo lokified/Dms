@@ -11,6 +11,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLandingBinding
@@ -20,12 +21,20 @@ class LandingFragment : Fragment() {
     private lateinit var binding: FragmentLandingBinding
     private lateinit var onBoardingItemAdapter: OnBoardingItemAdapter
 
+    private val args: LandingFragmentArgs by navArgs()
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLandingBinding.inflate(layoutInflater, container, false)
+
+        if (args.isCreatePinFragment) {
+
+            setUpLoginLayout()
+        }
+
         setOnBoardingItems()
         setUpIndicators()
         setCurrentIndicator(0)
@@ -47,6 +56,48 @@ class LandingFragment : Fragment() {
             val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment()
             findNavController().navigate(action)
         }
+
+        binding.loginBtn.setOnClickListener {
+            val action = LandingFragmentDirections.actionLandingFragmentToLoginFragment(args.userName, true)
+            findNavController().navigate(action)
+        }
+    }
+
+
+    private fun setUpLoginLayout() {
+        hideLandingLayout()
+
+        binding.welcomeText.visibility = View.VISIBLE
+        binding.verifyAnimation.visibility = View.VISIBLE
+        binding.loginBtn.visibility = View.VISIBLE
+        binding.helpLayout.visibility = View.VISIBLE
+
+        binding.welcomeText.text = "Welcome back ${getFirstName()}! \nWhere you maintain your \nCredit score"
+    }
+
+
+    private fun hideLandingLayout() {
+
+        binding.loginTxt.visibility = View.GONE
+        binding.viewPager.visibility = View.GONE
+        binding.indicatorContainer.visibility = View.GONE
+        binding.newHereBtn.visibility = View.GONE
+    }
+
+    private fun getFirstName(): String {
+
+        var firstName = ""
+        val userName = args.userName
+        val nameSplit = userName?.split(" ")?.toTypedArray()
+
+        if (nameSplit != null) {
+            for (i in nameSplit.indices) {
+                firstName = nameSplit[0]
+            }
+
+        }
+
+        return firstName
     }
 
 

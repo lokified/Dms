@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentPinBinding
@@ -109,10 +110,20 @@ class PinFragment : Fragment() {
 
                 pin = one1 + two2 + three3 + four4
 
+                navigateToLanding()
                 Log.i("pin_login", pin)
             }
 
         }
+    }
+
+
+    private fun navigateToLanding() {
+
+        val userName = args.userName
+
+        val action = PinFragmentDirections.actionPinFragmentToLandingFragment(true, userName)
+        findNavController().navigate(action)
     }
 
 
