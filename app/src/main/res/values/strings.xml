@@ -40,5 +40,13 @@
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About us</string>
     <string name="help">help</string>
+    <string name="wallet_balance">Wallet Balance</string>
+    <string name="welcome_back">Welcome back</string>
+    <string name="loan_manager">Loan Manager</string>
+    <string name="deposit_money">Deposit Money</string>
+    <string name="withdraw_money">Withdraw Money</string>
+    <string name="request_loan_payment">Request loan Payment</string>
+    <string name="transaction_history">Transaction history</string>
+    <string name="loan_payment_request">Loan payment Request</string>
 
 </resources>

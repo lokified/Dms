@@ -9,6 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLoginBinding
@@ -109,9 +110,17 @@ class LoginFragment : Fragment() {
 
                 pin = one1 + two2 + three3 + four4
 
+                navigateToDashboard()
             }
 
         }
+    }
+
+
+    private fun navigateToDashboard() {
+
+        val action = LoginFragmentDirections.actionLoginFragmentToDashboardFragment()
+        findNavController().navigate(action)
     }
 
 
