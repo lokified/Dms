@@ -2,6 +2,7 @@ package com.dmssystem.dms.ui.lookup
 
 import android.os.Bundle
 import android.os.Handler
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -29,6 +30,14 @@ class LookUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        binding.etPhoneNumber.setOnKeyListener { _, _, _ ->
+
+            if (isPhoneValid(binding.etPhoneNumber.text!!)){
+                binding.lPhoneNumber.error = null
+            }
+            false
+        }
 
         binding.lookupBtn.setOnClickListener {
 
@@ -63,11 +72,17 @@ class LookUpFragment : Fragment() {
 
     private fun validatePhoneNumberInput(): Boolean {
 
-        if (binding.etPhoneNumber.text.isNullOrEmpty()) {
-            binding.lPhoneNumber.helperText = "Please enter your phone number"
+        if (!isPhoneValid(binding.etPhoneNumber.text!!)) {
+            binding.lPhoneNumber.isErrorEnabled = true
+            binding.lPhoneNumber.error = "Please enter your phone number"
             return false
         }
 
         return true
+    }
+
+    private fun isPhoneValid(text: Editable?): Boolean {
+
+        return text != null && text.length == 10
     }
 }
