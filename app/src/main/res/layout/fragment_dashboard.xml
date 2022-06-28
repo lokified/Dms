@@ -184,7 +184,7 @@
         app:layout_constraintTop_toBottomOf="@+id/withdraw_layout" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+        android:id="@+id/requeat_loan_Layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -230,8 +230,8 @@
         android:text="@string/transaction_history"
         android:textColor="@color/black"
         android:fontFamily="@font/nunito_sans_semibold"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+        app:layout_constraintStart_toStartOf="@+id/requeat_loan_Layout"
+        app:layout_constraintTop_toBottomOf="@+id/requeat_loan_Layout" />
 
 
     <androidx.recyclerview.widget.RecyclerView

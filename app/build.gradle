@@ -84,4 +84,9 @@ dependencies {
     implementation "androidx.navigation:navigation-compose:2.4.2"
 
 
+    //country code picker
+    implementation 'com.hbb20:ccp:2.5.4'
+
+    //avi loading
+    implementation "com.wang.avi:library:2.1.3"
 }

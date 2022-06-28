@@ -48,5 +48,7 @@
     <string name="request_loan_payment">Request loan Payment</string>
     <string name="transaction_history">Transaction history</string>
     <string name="loan_payment_request">Loan payment Request</string>
+    <string name="request_loan">Request Loan payment</string>
+    <string name="settle_string">Lets settle your loan and borrow within your limits for \nyou. Select one of the loan companies that you have \na loan with</string>
 
 </resources>
