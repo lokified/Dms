@@ -106,10 +106,18 @@
         <action
             android:id="@+id/action_dashboardFragment_to_requestFragment"
             app:destination="@id/requestFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_withdrawFragment"
+            app:destination="@id/withdrawFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestFragment"
         android:name="com.dmssystem.dms.ui.request.RequestFragment"
         android:label="fragment_request"
         tools:layout="@layout/fragment_request" />
+    <fragment
+        android:id="@+id/withdrawFragment"
+        android:name="com.dmssystem.dms.ui.withdraw.WithdrawFragment"
+        android:label="fragment_withdraw"
+        tools:layout="@layout/fragment_withdraw" />
 </navigation>

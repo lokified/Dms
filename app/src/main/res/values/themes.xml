@@ -12,6 +12,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bottomSheetDialogTheme">@style/bottom_sheet_Theme</item>
     </style>
 
     <!-- no action bar theme -->
@@ -27,6 +28,7 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="bottomSheetDialogTheme">@style/bottom_sheet_Theme</item>
     </style>
 
 
@@ -68,6 +70,19 @@
         <item name="android:textColor">#000</item>
         <item name="android:letterSpacing">-0.03</item>
         <item name="android:layout_width">0dp</item>
+    </style>
+
+    <!-- bottom sheet Theme -->
+    <style name="bottom_sheet_Theme" parent="Theme.MaterialComponents.Light.BottomSheetDialog">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="bottomSheetStyle">@style/bottom_sheet_style</item>
+    </style>
+
+    <!-- bottom sheet style -->
+    <style name="bottom_sheet_style" parent="Widget.Design.BottomSheet.Modal">
+        <item name="android:background">@drawable/bottom_sheet_bg</item>
     </style>
 
 </resources>

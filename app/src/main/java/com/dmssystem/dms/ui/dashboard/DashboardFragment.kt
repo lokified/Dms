@@ -28,6 +28,12 @@ class DashboardFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.withdrawLayout.setOnClickListener {
+
+            val action = DashboardFragmentDirections.actionDashboardFragmentToWithdrawFragment()
+            findNavController().navigate(action)
+        }
+
         binding.requeatLoanLayout.setOnClickListener {
 
             val action = DashboardFragmentDirections.actionDashboardFragmentToRequestFragment()

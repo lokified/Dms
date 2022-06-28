@@ -141,19 +141,19 @@ class LoginFragment : Fragment() {
                 isDone = false
             }
 
-            if (three3 != null) {
+            else if (three3 != null) {
 
                 binding.pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 three3 = null
             }
 
-            if (two2 != null) {
+            else if (two2 != null) {
 
                 binding.pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 two2 = null
             }
 
-            if (one1 != null) {
+            else if (one1 != null) {
 
                 binding.pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 one1 = null

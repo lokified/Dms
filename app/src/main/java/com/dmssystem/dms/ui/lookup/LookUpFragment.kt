@@ -43,7 +43,7 @@ class LookUpFragment : Fragment() {
 
             val phoneNumber = binding.etPhoneNumber.text.toString()
 
-            if (validatePhoneNumberInput()) {
+            //if (validatePhoneNumberInput()) {
 
                 binding.lPhoneNumber.helperText = null
 
@@ -60,7 +60,7 @@ class LookUpFragment : Fragment() {
                 popup.createVerifyPopup(context)
                 popup.numberText.text = "We’ve sent a verification code to $phoneNumber"
                 popup.timeCountdown.start()
-            }
+            //}
 
         }
 

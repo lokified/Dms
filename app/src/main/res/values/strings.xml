@@ -50,5 +50,7 @@
     <string name="loan_payment_request">Loan payment Request</string>
     <string name="request_loan">Request Loan payment</string>
     <string name="settle_string">Lets settle your loan and borrow within your limits for \nyou. Select one of the loan companies that you have \na loan with</string>
+    <string name="mpesa">Mpesa</string>
+    <string name="withdraw">Withdraw</string>
 
 </resources>

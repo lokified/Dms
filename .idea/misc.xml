@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/answer_bg.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/bottom_sheet_bg.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/bottom_sheet_btn_bg.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/bottom_sheet_button.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/button_default.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/button_selected.xml" value="0.1535" />
         <entry key="app/src/main/res/drawable/continue_btn_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/dashboard_bg.xml" value="0.1385" />
         <entry key="app/src/main/res/drawable/ic_back_arrow.xml" value="0.1395" />
@@ -14,10 +19,14 @@
         <entry key="app/src/main/res/drawable/inactive_pin_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/inactive_pinview_bg.xml" value="0.1395" />
         <entry key="app/src/main/res/drawable/new_here_bg_btn.xml" value="0.1395" />
+        <entry key="app/src/main/res/drawable/tab_indicator_default.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/tab_indicator_selected.xml" value="0.1535" />
+        <entry key="app/src/main/res/drawable/view_bg.xml" value="0.1535" />
         <entry key="app/src/main/res/layout/account_verify_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.178125" />
         <entry key="app/src/main/res/layout/app_logo_imageview.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog_withdraw_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
@@ -27,6 +36,7 @@
         <entry key="app/src/main/res/layout/fragment_request.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_secuity_questions.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_security_questions.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.25" />
         <entry key="app/src/main/res/layout/list_security_question_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/loan_company_list_item_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/onboarding_item_layout.xml" value="0.19375" />
