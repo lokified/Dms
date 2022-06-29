@@ -109,6 +109,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_withdrawFragment"
             app:destination="@id/withdrawFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_depositFragment"
+            app:destination="@id/depositFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestFragment"
@@ -120,4 +123,9 @@
         android:name="com.dmssystem.dms.ui.withdraw.WithdrawFragment"
         android:label="fragment_withdraw"
         tools:layout="@layout/fragment_withdraw" />
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.dmssystem.dms.ui.deposit.DepositFragment"
+        android:label="fragment_deposit"
+        tools:layout="@layout/fragment_deposit" />
 </navigation>

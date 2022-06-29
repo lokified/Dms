@@ -34,6 +34,12 @@ class DashboardFragment : Fragment() {
             findNavController().navigate(action)
         }
 
+        binding.depositLayout.setOnClickListener {
+
+            val action = DashboardFragmentDirections.actionDashboardFragmentToDepositFragment()
+            findNavController().navigate(action)
+        }
+
         binding.requeatLoanLayout.setOnClickListener {
 
             val action = DashboardFragmentDirections.actionDashboardFragmentToRequestFragment()
