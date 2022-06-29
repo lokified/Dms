@@ -15,6 +15,8 @@ import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLandingBinding
+import com.dmssystem.dms.util.darkStatusBar
+import com.dmssystem.dms.util.setStatusBarColor
 
 class LandingFragment : Fragment() {
 
@@ -29,6 +31,8 @@ class LandingFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLandingBinding.inflate(layoutInflater, container, false)
+
+        setStatusBarColor(resources.getColor(R.color.colorPrimary))
 
         if (args.isCreatePinFragment) {
 
@@ -45,6 +49,8 @@ class LandingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        darkStatusBar()
 
         binding.newHereBtn.setOnClickListener {
 

@@ -11,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLookUpBinding
 import com.dmssystem.dms.util.VerifyPopup
+import com.dmssystem.dms.util.lightStatusBar
+import com.dmssystem.dms.util.setStatusBarColor
 
 class LookUpFragment : Fragment() {
     private lateinit var binding: FragmentLookUpBinding
@@ -23,6 +25,8 @@ class LookUpFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLookUpBinding.inflate(inflater, container, false)
+
+        setStatusBarColor(resources.getColor(R.color.white))
         return binding.root
     }
 
@@ -30,6 +34,7 @@ class LookUpFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        lightStatusBar()
 
         binding.etPhoneNumber.setOnKeyListener { _, _, _ ->
 
