@@ -53,6 +53,11 @@ class PinFragment : Fragment() {
         val userName = args.userName
 
         binding.tvUserName.text = userName
+
+        binding.arrowBackImg.setOnClickListener {
+
+            findNavController().navigateUp()
+        }
     }
 
     private fun initUI() {

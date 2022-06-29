@@ -6,9 +6,23 @@
     android:layout_height="match_parent"
     tools:context=".ui.login.LoginFragment">
 
+    <ImageView
+        android:id="@+id/arrow_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
     <include
         android:id="@+id/app_logo"
-        layout="@layout/app_logo_imageview"/>
+        android:layout_marginTop="8dp"
+        layout="@layout/app_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@id/arrow_back_img"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
     <TextView
 
@@ -216,16 +230,16 @@
         android:id="@+id/tv_forgotPin"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
-        android:visibility="invisible"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
         android:lineSpacingExtra="12sp"
-        android:text="forgot pin?"
-        android:textColor="#6f7070"
+        android:text="@string/forgot_pin_string"
+        android:textColor="#707070"
         android:textSize="12sp"
-        android:textStyle="normal"
+        android:textAllCaps="false"
+        android:fontFamily="@font/nunito_sans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

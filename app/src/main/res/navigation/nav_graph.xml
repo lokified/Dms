@@ -61,10 +61,14 @@
         tools:layout="@layout/fragment_pin">
         <argument
             android:name="userName"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <argument
             android:name="phoneNumber"
-            app:argType="string" />
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
         <action
             android:id="@+id/action_pinFragment_to_landingFragment"
             app:destination="@id/landingFragment"
@@ -97,6 +101,9 @@
         <action
             android:id="@+id/action_loginFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPinFragment"
+            app:destination="@id/forgotPinFragment" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -128,4 +135,25 @@
         android:name="com.dmssystem.dms.ui.deposit.DepositFragment"
         android:label="fragment_deposit"
         tools:layout="@layout/fragment_deposit" />
+    <fragment
+        android:id="@+id/forgotPinFragment"
+        android:name="com.dmssystem.dms.ui.forgotpin.ForgotPinFragment"
+        android:label="fragment_forgot_pin"
+        tools:layout="@layout/fragment_forgot_pin" >
+        <action
+            android:id="@+id/action_forgotPinFragment_to_anotherMethodFragment"
+            app:destination="@id/anotherMethodFragment" />
+        <action
+            android:id="@+id/action_forgotPinFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/anotherMethodFragment"
+        android:name="com.dmssystem.dms.ui.forgotpin.AnotherMethodFragment"
+        android:label="fragment_another_method"
+        tools:layout="@layout/fragment_another_method" >
+        <action
+            android:id="@+id/action_anotherMethodFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
 </navigation>

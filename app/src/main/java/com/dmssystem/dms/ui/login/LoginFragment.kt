@@ -52,6 +52,17 @@ class LoginFragment : Fragment() {
         if (args.islandingFragment) {
             binding.tvUserName.text = args.userName
         }
+
+        binding.tvForgotPin.setOnClickListener {
+
+            val action = LoginFragmentDirections.actionLoginFragmentToForgotPinFragment()
+            findNavController().navigate(action)
+        }
+
+        binding.arrowBackImg.setOnClickListener {
+
+            findNavController().navigateUp()
+        }
     }
 
     private fun initUI() {

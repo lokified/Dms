@@ -5,10 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/arrow_back_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="26dp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
 
     <include
         android:id="@+id/app_logo"
-        layout="@layout/app_logo_imageview"/>
+        android:layout_marginTop="8dp"
+        layout="@layout/app_logo_imageview"
+        app:layout_constraintTop_toBottomOf="@id/arrow_back_img"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"/>
 
     <TextView
 

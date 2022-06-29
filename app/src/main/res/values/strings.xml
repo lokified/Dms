@@ -52,5 +52,11 @@
     <string name="settle_string">Lets settle your loan and borrow within your limits for \nyou. Select one of the loan companies that you have \na loan with</string>
     <string name="mpesa">Mpesa</string>
     <string name="withdraw">Withdraw</string>
+    <string name="forgot_pin_string">Forgot pin?</string>
+    <string name="sucks_string">Sucks to forget your pin! Don’t \nworry we got you</string>
+    <string name="answer_text">Please answer the security question below</string>
+    <string name="give_answer">Give answer</string>
+    <string name="let_s_verify_your_account">Let’s verify your account</string>
+    <string name="kindly_provide">Kindly provide your ID number</string>
 
 </resources>
