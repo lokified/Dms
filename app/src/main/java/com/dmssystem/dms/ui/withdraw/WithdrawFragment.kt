@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentWithdrawBinding
+import com.dmssystem.dms.util.lightStatusBar
+import com.dmssystem.dms.util.setStatusBarColor
 import com.google.android.material.bottomsheet.BottomSheetDialog
 
 class WithdrawFragment : Fragment() {
@@ -24,6 +26,7 @@ class WithdrawFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentWithdrawBinding.inflate(layoutInflater, container, false)
 
+        setStatusBarColor(resources.getColor(R.color.white))
         initUI()
         return binding.root
     }
@@ -31,6 +34,8 @@ class WithdrawFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lightStatusBar()
 
         binding.continueBtn.setOnClickListener {
 
