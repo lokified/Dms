@@ -7,17 +7,23 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentWithdrawBinding
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
 import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.button.MaterialButton
+import com.google.android.material.textfield.TextInputEditText
 
 class WithdrawFragment : Fragment() {
 
     private lateinit var binding: FragmentWithdrawBinding
 
+    private lateinit var myNumberBtn: MaterialButton
+    private lateinit var otherNumberBtn: MaterialButton
+    private lateinit var phoneEditText: TextInputEditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,8 +64,49 @@ class WithdrawFragment : Fragment() {
 
         val bottomSheetDialog = BottomSheetDialog(requireContext())
         bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_withdraw_layout)
+
+        myNumberBtn = bottomSheetDialog.findViewById(R.id.myNumber_btn)!!
+        otherNumberBtn = bottomSheetDialog.findViewById(R.id.other_number_btn)!!
+        phoneEditText = bottomSheetDialog.findViewById(R.id.et_phone_number_sheet)!!
+
+        phoneEditText.setText("0725992494")
+        phoneEditText.isEnabled = false
+
+        myNumberBtn.setOnClickListener {
+
+            setMyNumberLayout()
+        }
+        otherNumberBtn.setOnClickListener {
+
+            setOtherNumberLayout()
+
+        }
+
         bottomSheetDialog.show()
 
+    }
+
+
+    private fun setOtherNumberLayout() {
+        myNumberBtn.setTextColor(resources.getColor(R.color.sheetColor))
+        myNumberBtn.background = ContextCompat.getDrawable(requireContext(), R.drawable.bottom_sheet_button)
+        otherNumberBtn.background = ContextCompat.getDrawable(requireContext(), R.drawable.continue_btn_bg)
+
+        otherNumberBtn.setTextColor(resources.getColor(R.color.white))
+
+        phoneEditText.setText("")
+        phoneEditText.isEnabled = true
+    }
+
+    private fun setMyNumberLayout() {
+
+        otherNumberBtn.background = ContextCompat.getDrawable(requireContext(), R.drawable.bottom_sheet_button)
+        myNumberBtn.background = ContextCompat.getDrawable(requireContext(), R.drawable.continue_btn_bg)
+        otherNumberBtn.setTextColor(resources.getColor(R.color.sheetColor))
+        myNumberBtn.setTextColor(resources.getColor(R.color.white))
+
+        phoneEditText.setText("0725992494")
+        phoneEditText.isEnabled = false
     }
 
     private fun initUI() {
