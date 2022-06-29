@@ -9,6 +9,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentRequestBinding
+import com.dmssystem.dms.util.lightStatusBar
+import com.dmssystem.dms.util.setStatusBarColor
 
 class RequestFragment : Fragment() {
 
@@ -22,6 +24,8 @@ class RequestFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentRequestBinding.inflate(layoutInflater, container, false)
 
+        setStatusBarColor(resources.getColor(R.color.white))
+
         setUpLoanCompanies()
         return binding.root
     }
@@ -29,6 +33,8 @@ class RequestFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lightStatusBar()
 
         binding.backArrow.setOnClickListener {
 

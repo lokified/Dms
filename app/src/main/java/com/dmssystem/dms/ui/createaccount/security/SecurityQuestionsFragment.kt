@@ -15,6 +15,8 @@ import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
 import com.dmssystem.dms.util.VerifyPopup
+import com.dmssystem.dms.util.lightStatusBar
+import com.dmssystem.dms.util.setStatusBarColor
 
 class SecurityQuestionsFragment : Fragment() {
 
@@ -29,11 +31,16 @@ class SecurityQuestionsFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentSecurityQuestionsBinding.inflate(inflater, container, false)
 
+        setStatusBarColor(resources.getColor(R.color.white))
+
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lightStatusBar()
+
         setUpQuestions()
         setUpAnswerEditText()
 

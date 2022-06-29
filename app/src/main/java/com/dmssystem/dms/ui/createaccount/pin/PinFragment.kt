@@ -14,6 +14,8 @@ import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentPinBinding
 import com.dmssystem.dms.util.SharedPreferenceManager
+import com.dmssystem.dms.util.lightStatusBar
+import com.dmssystem.dms.util.setStatusBarColor
 
 class PinFragment : Fragment() {
 
@@ -37,12 +39,16 @@ class PinFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         binding = FragmentPinBinding.inflate(inflater, container, false)
+
+        setStatusBarColor(resources.getColor(R.color.white))
         initUI()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        lightStatusBar()
 
         val userName = args.userName
 
