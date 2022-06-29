@@ -7,6 +7,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.EditorInfo
+import android.view.inputmethod.InputConnection
 import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
@@ -26,6 +28,8 @@ class DepositFragment : Fragment() {
     private lateinit var myNumberBtn: MaterialButton
     private lateinit var otherNumberBtn: MaterialButton
     private lateinit var phoneEditText: TextInputEditText
+
+    private lateinit var inputConnection : InputConnection
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -120,6 +124,8 @@ class DepositFragment : Fragment() {
 
     private fun initUI() {
 
+        inputConnection = binding.etAmount.onCreateInputConnection(EditorInfo())
+
         binding.apply {
             binding.btnOne.setOnClickListener { controlPinPad1("1") }
             binding.btnTwo.setOnClickListener { controlPinPad1("2") }
@@ -131,7 +137,7 @@ class DepositFragment : Fragment() {
             binding.btnEight.setOnClickListener { controlPinPad1("8") }
             binding.btnNine.setOnClickListener { controlPinPad1("9") }
             binding.btnZero.setOnClickListener { controlPinPad1("0") }
-            binding.btnDelete.setOnClickListener { deletePinEntry() }
+            binding.btnDelete.setOnClickListener { inputConnection.delete() }
         }
     }
 
@@ -145,19 +151,12 @@ class DepositFragment : Fragment() {
     }
 
 
-    private fun deletePinEntry() {
-        var display: String = binding.etAmount.text.toString()
-
-        if(!TextUtils.isEmpty(display)) {
-
-            display = display.substring(0, display.length - 1)
-
-            binding.etAmount.setText(display)
+    private fun InputConnection.delete() {
+        if (getSelectedText(0).isNullOrBlank()) {
+            deleteSurroundingText(1, 0)
         }
-        else{
-
-            binding.etAmount.visibility = View.INVISIBLE
-            binding.tvAmount.visibility = View.VISIBLE
+        else {
+            commitText("", 1)
         }
     }
 }
