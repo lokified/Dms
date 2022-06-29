@@ -46,6 +46,8 @@ class DepositFragment : Fragment() {
 
         lightStatusBar()
 
+        binding.etAmount.showSoftInputOnFocus = false
+
         binding.continueBtn.setOnClickListener {
 
             val amount = binding.etAmount.text.toString()
