@@ -63,17 +63,17 @@ class PinFragment : Fragment() {
     private fun initUI() {
 
         binding.apply {
-            binding.btnOne.setOnClickListener { controlPinPad2("1") }
-            binding.btnTwo.setOnClickListener { controlPinPad2("2") }
-            binding.btnThree.setOnClickListener { controlPinPad2("3") }
-            binding.btnFour.setOnClickListener { controlPinPad2("4") }
-            binding.btnFive.setOnClickListener { controlPinPad2("5") }
-            binding.btnSix.setOnClickListener { controlPinPad2("6") }
-            binding.btnSeven.setOnClickListener { controlPinPad2("7") }
-            binding.btnEight.setOnClickListener { controlPinPad2("8") }
-            binding.btnNine.setOnClickListener { controlPinPad2("9") }
-            binding.btnZero.setOnClickListener { controlPinPad2("0") }
-            binding.btnDelete.setOnClickListener { deletePinEntry() }
+            btnOne.setOnClickListener { controlPinPad2("1") }
+            btnTwo.setOnClickListener { controlPinPad2("2") }
+            btnThree.setOnClickListener { controlPinPad2("3") }
+            btnFour.setOnClickListener { controlPinPad2("4") }
+            btnFive.setOnClickListener { controlPinPad2("5") }
+            btnSix.setOnClickListener { controlPinPad2("6") }
+            btnSeven.setOnClickListener { controlPinPad2("7") }
+            btnEight.setOnClickListener { controlPinPad2("8") }
+            btnNine.setOnClickListener { controlPinPad2("9") }
+            btnZero.setOnClickListener { controlPinPad2("0") }
+            btnDelete.setOnClickListener { deletePinEntry() }
         }
     }
 
@@ -82,7 +82,7 @@ class PinFragment : Fragment() {
         binding.apply {
             when {
                 one1 == null -> {
-                    binding.pin1.background = context?.let {
+                    pin1.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -91,7 +91,7 @@ class PinFragment : Fragment() {
                     one1 = entry
                 }
                 two2 == null -> {
-                    binding.pin2.background = context?.let {
+                    pin2.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -100,7 +100,7 @@ class PinFragment : Fragment() {
                     two2 = entry
                 }
                 three3 == null -> {
-                    binding.pin3.background = context?.let {
+                    pin3.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -109,7 +109,7 @@ class PinFragment : Fragment() {
                     three3 = entry
                 }
                 four4 == null -> {
-                    binding.pin4.background = context?.let {
+                    pin4.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -174,26 +174,26 @@ class PinFragment : Fragment() {
             }
             if (four4 != null) {
 
-                binding.pin4.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin4.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 four4 = null
                 isDone = false
             }
 
             else if (three3 != null) {
 
-                binding.pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 three3 = null
             }
 
             else if (two2 != null) {
 
-                binding.pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 two2 = null
             }
 
             else if (one1 != null) {
 
-                binding.pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 one1 = null
             }
         }
@@ -208,29 +208,30 @@ class PinFragment : Fragment() {
 
         isDone = false
 
-        binding.pin4.background = resources.getDrawable(R.drawable.inactive_pin_bg)
-        binding.pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
-        binding.pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
-        binding.pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+        binding.apply {
 
-
+            pin4.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+            pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+            pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+            pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+        }
     }
 
 
     private fun confirmUI() {
 
         binding.apply {
-            binding.btnOne.setOnClickListener { controlPinPad1("1") }
-            binding.btnTwo.setOnClickListener { controlPinPad1("2") }
-            binding.btnThree.setOnClickListener { controlPinPad1("3") }
-            binding.btnFour.setOnClickListener { controlPinPad1("4") }
-            binding.btnFive.setOnClickListener { controlPinPad1("5") }
-            binding.btnSix.setOnClickListener { controlPinPad1("6") }
-            binding.btnSeven.setOnClickListener { controlPinPad1("7") }
-            binding.btnEight.setOnClickListener { controlPinPad1("8") }
-            binding.btnNine.setOnClickListener { controlPinPad1("9") }
-            binding.btnZero.setOnClickListener { controlPinPad1("0") }
-            binding.btnDelete.setOnClickListener { deletePinEntry() }
+            btnOne.setOnClickListener { controlPinPad1("1") }
+            btnTwo.setOnClickListener { controlPinPad1("2") }
+            btnThree.setOnClickListener { controlPinPad1("3") }
+            btnFour.setOnClickListener { controlPinPad1("4") }
+            btnFive.setOnClickListener { controlPinPad1("5") }
+            btnSix.setOnClickListener { controlPinPad1("6") }
+            btnSeven.setOnClickListener { controlPinPad1("7") }
+            btnEight.setOnClickListener { controlPinPad1("8") }
+            btnNine.setOnClickListener { controlPinPad1("9") }
+            btnZero.setOnClickListener { controlPinPad1("0") }
+            btnDelete.setOnClickListener { deletePinEntry() }
         }
     }
 
@@ -239,7 +240,7 @@ class PinFragment : Fragment() {
         binding.apply {
             when {
                 one1 == null -> {
-                    binding.pin1.background = context?.let {
+                    pin1.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -248,7 +249,7 @@ class PinFragment : Fragment() {
                     one1 = entry
                 }
                 two2 == null -> {
-                    binding.pin2.background = context?.let {
+                    pin2.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -257,7 +258,7 @@ class PinFragment : Fragment() {
                     two2 = entry
                 }
                 three3 == null -> {
-                    binding.pin3.background = context?.let {
+                    pin3.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -266,7 +267,7 @@ class PinFragment : Fragment() {
                     three3 = entry
                 }
                 four4 == null -> {
-                    binding.pin4.background = context?.let {
+                    pin4.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground

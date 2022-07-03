@@ -37,35 +37,38 @@ class ForgotPinFragment : Fragment() {
 
         lightStatusBar()
 
+        binding.apply {
 
-        binding.arrowBackImg.setOnClickListener {
+            arrowBackImg.setOnClickListener {
 
-            findNavController().navigateUp()
-        }
+                findNavController().navigateUp()
+            }
 
 
-        binding.anotherBtn.setOnClickListener {
+            anotherBtn.setOnClickListener {
 
-            val action = ForgotPinFragmentDirections.actionForgotPinFragmentToAnotherMethodFragment()
-            findNavController().navigate(action)
-        }
-
-        binding.continueBtn.setOnClickListener {
-
-            Handler().postDelayed(Runnable {
-
-                popup.dialog.dismiss()
-                popup.timeCountdown.cancel()
-
-                val action = ForgotPinFragmentDirections.actionForgotPinFragmentToPinFragment()
+                val action = ForgotPinFragmentDirections.actionForgotPinFragmentToAnotherMethodFragment()
                 findNavController().navigate(action)
+            }
 
-            }, 6000)
+            continueBtn.setOnClickListener {
 
-            popup.createVerifyPopup(context)
-            popup.numberText.text = "We’ve sent a verification code to +25472345678"
-            popup.timeCountdown.start()
+                Handler().postDelayed(Runnable {
 
+                    popup.dialog.dismiss()
+                    popup.timeCountdown.cancel()
+
+                    val action = ForgotPinFragmentDirections.actionForgotPinFragmentToPinFragment()
+                    findNavController().navigate(action)
+
+                }, 6000)
+
+                popup.createVerifyPopup(context)
+                popup.numberText.text = "We’ve sent a verification code to +25472345678"
+                popup.timeCountdown.start()
+
+            }
         }
+
     }
 }

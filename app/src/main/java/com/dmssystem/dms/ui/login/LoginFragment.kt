@@ -29,8 +29,6 @@ class LoginFragment : Fragment() {
     private var four4: String? = null
     private var isDone = false
 
-    private var mConfirmPin: String? = null
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -49,36 +47,40 @@ class LoginFragment : Fragment() {
 
         lightStatusBar()
 
-        if (args.islandingFragment) {
-            binding.tvUserName.text = args.userName
+        binding.apply {
+
+            if (args.islandingFragment) {
+                tvUserName.text = args.userName
+            }
+
+            tvForgotPin.setOnClickListener {
+
+                val action = LoginFragmentDirections.actionLoginFragmentToForgotPinFragment()
+                findNavController().navigate(action)
+            }
+
+            arrowBackImg.setOnClickListener {
+
+                findNavController().navigateUp()
+            }
         }
 
-        binding.tvForgotPin.setOnClickListener {
-
-            val action = LoginFragmentDirections.actionLoginFragmentToForgotPinFragment()
-            findNavController().navigate(action)
-        }
-
-        binding.arrowBackImg.setOnClickListener {
-
-            findNavController().navigateUp()
-        }
     }
 
     private fun initUI() {
 
         binding.apply {
-            binding.btnOne.setOnClickListener { controlPinPad2("1") }
-            binding.btnTwo.setOnClickListener { controlPinPad2("2") }
-            binding.btnThree.setOnClickListener { controlPinPad2("3") }
-            binding.btnFour.setOnClickListener { controlPinPad2("4") }
-            binding.btnFive.setOnClickListener { controlPinPad2("5") }
-            binding.btnSix.setOnClickListener { controlPinPad2("6") }
-            binding.btnSeven.setOnClickListener { controlPinPad2("7") }
-            binding.btnEight.setOnClickListener { controlPinPad2("8") }
-            binding.btnNine.setOnClickListener { controlPinPad2("9") }
-            binding.btnZero.setOnClickListener { controlPinPad2("0") }
-            binding.btnDelete.setOnClickListener { deletePinEntry() }
+            btnOne.setOnClickListener { controlPinPad2("1") }
+            btnTwo.setOnClickListener { controlPinPad2("2") }
+            btnThree.setOnClickListener { controlPinPad2("3") }
+            btnFour.setOnClickListener { controlPinPad2("4") }
+            btnFive.setOnClickListener { controlPinPad2("5") }
+            btnSix.setOnClickListener { controlPinPad2("6") }
+            btnSeven.setOnClickListener { controlPinPad2("7") }
+            btnEight.setOnClickListener { controlPinPad2("8") }
+            btnNine.setOnClickListener { controlPinPad2("9") }
+            btnZero.setOnClickListener { controlPinPad2("0") }
+            btnDelete.setOnClickListener { deletePinEntry() }
         }
     }
 
@@ -86,7 +88,7 @@ class LoginFragment : Fragment() {
         binding.apply {
             when {
                 one1 == null -> {
-                    binding.pin1.background = context?.let {
+                    pin1.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -95,7 +97,7 @@ class LoginFragment : Fragment() {
                     one1 = entry
                 }
                 two2 == null -> {
-                    binding.pin2.background = context?.let {
+                    pin2.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -104,7 +106,7 @@ class LoginFragment : Fragment() {
                     two2 = entry
                 }
                 three3 == null -> {
-                    binding.pin3.background = context?.let {
+                    pin3.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -113,7 +115,7 @@ class LoginFragment : Fragment() {
                     three3 = entry
                 }
                 four4 == null -> {
-                    binding.pin4.background = context?.let {
+                    pin4.background = context?.let {
                         ContextCompat.getDrawable(
                             it,
                             R.drawable.activestepsbackground
@@ -148,32 +150,28 @@ class LoginFragment : Fragment() {
 
         binding.apply {
 
-            if (mConfirmPin != null && mConfirmPin!!.length > 0) {
-
-                mConfirmPin = mConfirmPin!!.substring(0, mConfirmPin!!.length - 1)
-            }
             if (four4 != null) {
 
-                binding.pin4.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin4.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 four4 = null
                 isDone = false
             }
 
             else if (three3 != null) {
 
-                binding.pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin3.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 three3 = null
             }
 
             else if (two2 != null) {
 
-                binding.pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin2.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 two2 = null
             }
 
             else if (one1 != null) {
 
-                binding.pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
+                pin1.background = resources.getDrawable(R.drawable.inactive_pin_bg)
                 one1 = null
             }
         }

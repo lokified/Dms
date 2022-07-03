@@ -91,58 +91,70 @@ class SecurityQuestionsFragment : Fragment() {
 
     private fun setUpAnswerEditText() {
 
-        binding.etQuestion1.setOnClickListener { showAnswerEditText() }
+        binding.apply {
 
-        binding.etQuestion2.setOnClickListener { showAnswerEditText() }
+            etQuestion1.setOnClickListener { showAnswerEditText() }
+            etQuestion2.setOnClickListener { showAnswerEditText() }
+            etQuestion3.setOnDismissListener { showAnswerEditText() }
+        }
 
-        binding.etQuestion3.setOnDismissListener { showAnswerEditText() }
     }
 
 
     private fun showAnswerEditText() {
 
-        if(!binding.etAnswerQ1.isVisible){
-            binding.etAnswerQ1.visibility = View.VISIBLE
+        binding.apply {
+
+            if(!etAnswerQ1.isVisible){
+                etAnswerQ1.visibility = View.VISIBLE
+            }
+
+            else if(!etAnswerQ2.isVisible ) {
+                etAnswerQ2.visibility = View.VISIBLE
+            }
+
+            else if(!etAnswerQ3.isVisible) {
+                etAnswerQ3.visibility = View.VISIBLE
+            }
         }
 
-        else if(!binding.etAnswerQ2.isVisible ) {
-            binding.etAnswerQ2.visibility = View.VISIBLE
-        }
-
-        else if(!binding.etAnswerQ3.isVisible) {
-            binding.etAnswerQ3.visibility = View.VISIBLE
-        }
     }
 
 
     private fun validateForm(): Boolean {
 
-        if (binding.etAnswerQ1.text.isNullOrEmpty()) {
-            binding.etAnswerQ1.visibility = View.VISIBLE
-            binding.tvErrorMessage1.visibility = View.VISIBLE
-            binding.tvErrorMessage1.text = getString(R.string.input_answer)
-            return false
-        }
-        if (binding.etAnswerQ2.text.isNullOrEmpty()) {
-            binding.etAnswerQ2.visibility = View.VISIBLE
-            binding.tvErrorMessage2.visibility = View.VISIBLE
-            binding.tvErrorMessage2.text = getString(R.string.input_answer)
-            return false
-        }
-        if (binding.etAnswerQ3.text.isNullOrEmpty()) {
-            binding.etAnswerQ3.visibility = View.VISIBLE
-            binding.tvErrorMessage3.visibility = View.VISIBLE
-            binding.tvErrorMessage3.text = getString(R.string.input_answer)
-            return false
-        }
+        binding.apply {
 
-        return true
+            if (etAnswerQ1.text.isNullOrEmpty()) {
+                etAnswerQ1.visibility = View.VISIBLE
+                tvErrorMessage1.visibility = View.VISIBLE
+                tvErrorMessage1.text = getString(R.string.input_answer)
+                return false
+            }
+            if (etAnswerQ2.text.isNullOrEmpty()) {
+                etAnswerQ2.visibility = View.VISIBLE
+                tvErrorMessage2.visibility = View.VISIBLE
+                tvErrorMessage2.text = getString(R.string.input_answer)
+                return false
+            }
+            if (etAnswerQ3.text.isNullOrEmpty()) {
+                etAnswerQ3.visibility = View.VISIBLE
+                tvErrorMessage3.visibility = View.VISIBLE
+                tvErrorMessage3.text = getString(R.string.input_answer)
+                return false
+            }
+
+            return true
+        }
     }
 
     private fun hideErrorMessage() {
 
-        binding.tvErrorMessage1.text = null
-        binding.tvErrorMessage2.text = null
-        binding.tvErrorMessage3.text = null
+        binding.apply {
+
+            tvErrorMessage1.text = null
+            tvErrorMessage2.text = null
+            tvErrorMessage3.text = null
+        }
     }
 }

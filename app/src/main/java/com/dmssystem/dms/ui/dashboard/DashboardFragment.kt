@@ -36,22 +36,25 @@ class DashboardFragment : Fragment() {
 
         lightStatusBar()
 
-        binding.withdrawLayout.setOnClickListener {
+        binding.apply {
 
-            val action = DashboardFragmentDirections.actionDashboardFragmentToWithdrawFragment()
-            findNavController().navigate(action)
-        }
+            withdrawLayout.setOnClickListener {
 
-        binding.depositLayout.setOnClickListener {
+                val action = DashboardFragmentDirections.actionDashboardFragmentToWithdrawFragment()
+                findNavController().navigate(action)
+            }
 
-            val action = DashboardFragmentDirections.actionDashboardFragmentToDepositFragment()
-            findNavController().navigate(action)
-        }
+            depositLayout.setOnClickListener {
 
-        binding.requeatLoanLayout.setOnClickListener {
+                val action = DashboardFragmentDirections.actionDashboardFragmentToDepositFragment()
+                findNavController().navigate(action)
+            }
 
-            val action = DashboardFragmentDirections.actionDashboardFragmentToRequestFragment()
-            findNavController().navigate(action)
+            requeatLoanLayout.setOnClickListener {
+
+                val action = DashboardFragmentDirections.actionDashboardFragmentToRequestFragment()
+                findNavController().navigate(action)
+            }
         }
     }
 

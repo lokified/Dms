@@ -49,22 +49,23 @@ class WithdrawFragment : Fragment() {
 
         lightStatusBar()
 
-        binding.etAmount.showSoftInputOnFocus = false
+        binding.apply {
 
-        binding.continueBtn.setOnClickListener {
+            etAmount.showSoftInputOnFocus = false
 
-            val amount = binding.etAmount.text.toString()
+            continueBtn.setOnClickListener {
 
-            Log.i("amount", amount)
+                val amount = binding.etAmount.text.toString()
 
-            //show bottom sheet dialog
-            showWithdrawalDialog()
-        }
+                //show bottom sheet dialog
+                showWithdrawalDialog()
+            }
 
 
-        binding.backArrow.setOnClickListener {
+            backArrow.setOnClickListener {
 
-            findNavController().navigateUp()
+                findNavController().navigateUp()
+            }
         }
     }
 
@@ -119,20 +120,20 @@ class WithdrawFragment : Fragment() {
 
     private fun initUI() {
 
-        inputConnection = binding.etAmount.onCreateInputConnection(EditorInfo())
-
         binding.apply {
-            binding.btnOne.setOnClickListener { controlPinPad1("1") }
-            binding.btnTwo.setOnClickListener { controlPinPad1("2") }
-            binding.btnThree.setOnClickListener { controlPinPad1("3") }
-            binding.btnFour.setOnClickListener { controlPinPad1("4") }
-            binding.btnFive.setOnClickListener { controlPinPad1("5") }
-            binding.btnSix.setOnClickListener { controlPinPad1("6") }
-            binding.btnSeven.setOnClickListener { controlPinPad1("7") }
-            binding.btnEight.setOnClickListener { controlPinPad1("8") }
-            binding.btnNine.setOnClickListener { controlPinPad1("9") }
-            binding.btnZero.setOnClickListener { controlPinPad1("0") }
-            binding.btnDelete.setOnClickListener { inputConnection.delete() }
+            inputConnection = etAmount.onCreateInputConnection(EditorInfo())
+
+            btnOne.setOnClickListener { controlPinPad1("1") }
+            btnTwo.setOnClickListener { controlPinPad1("2") }
+            btnThree.setOnClickListener { controlPinPad1("3") }
+            btnFour.setOnClickListener { controlPinPad1("4") }
+            btnFive.setOnClickListener { controlPinPad1("5") }
+            btnSix.setOnClickListener { controlPinPad1("6") }
+            btnSeven.setOnClickListener { controlPinPad1("7") }
+            btnEight.setOnClickListener { controlPinPad1("8") }
+            btnNine.setOnClickListener { controlPinPad1("9") }
+            btnZero.setOnClickListener { controlPinPad1("0") }
+            btnDelete.setOnClickListener { inputConnection.delete() }
         }
     }
 

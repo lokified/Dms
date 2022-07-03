@@ -52,42 +52,53 @@ class LandingFragment : Fragment() {
 
         darkStatusBar()
 
-        binding.newHereBtn.setOnClickListener {
+        binding.apply {
 
-            val action = LandingFragmentDirections.actionLandingFragmentToCreateAccountFragment()
-            findNavController().navigate(action)
+            newHereBtn.setOnClickListener {
+
+                val action = LandingFragmentDirections.actionLandingFragmentToCreateAccountFragment()
+                findNavController().navigate(action)
+            }
+
+            loginTxt.setOnClickListener {
+                val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment()
+                findNavController().navigate(action)
+            }
+
+            loginBtn.setOnClickListener {
+                val action = LandingFragmentDirections.actionLandingFragmentToLoginFragment(args.userName, true)
+                findNavController().navigate(action)
+            }
         }
 
-        binding.loginTxt.setOnClickListener {
-            val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment()
-            findNavController().navigate(action)
-        }
-
-        binding.loginBtn.setOnClickListener {
-            val action = LandingFragmentDirections.actionLandingFragmentToLoginFragment(args.userName, true)
-            findNavController().navigate(action)
-        }
     }
 
 
     private fun setUpLoginLayout() {
         hideLandingLayout()
 
-        binding.welcomeText.visibility = View.VISIBLE
-        binding.verifyAnimation.visibility = View.VISIBLE
-        binding.loginBtn.visibility = View.VISIBLE
-        binding.helpLayout.visibility = View.VISIBLE
+        binding.apply {
 
-        binding.welcomeText.text = "Welcome back ${getFirstName()}! \nWhere you maintain your \nCredit score"
+            welcomeText.visibility = View.VISIBLE
+            verifyAnimation.visibility = View.VISIBLE
+            loginBtn.visibility = View.VISIBLE
+            helpLayout.visibility = View.VISIBLE
+
+            welcomeText.text = "Welcome back ${getFirstName()}! \nWhere you maintain your \nCredit score"
+        }
     }
 
 
     private fun hideLandingLayout() {
 
-        binding.loginTxt.visibility = View.GONE
-        binding.viewPager.visibility = View.GONE
-        binding.indicatorContainer.visibility = View.GONE
-        binding.newHereBtn.visibility = View.GONE
+        binding.apply {
+
+            loginTxt.visibility = View.GONE
+            viewPager.visibility = View.GONE
+            indicatorContainer.visibility = View.GONE
+            newHereBtn.visibility = View.GONE
+        }
+
     }
 
     private fun getFirstName(): String {

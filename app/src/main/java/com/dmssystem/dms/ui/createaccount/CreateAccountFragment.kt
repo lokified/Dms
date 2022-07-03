@@ -63,35 +63,39 @@ class CreateAccountFragment : Fragment() {
 
     private fun validateForm() : Boolean{
 
-        if (binding.etFirstName.text.isNullOrBlank()) {
-            binding.lFirstName.helperText = "Please enter first name"
+        binding.apply {
 
-            return false
+            if (etFirstName.text.isNullOrBlank()) {
+                lFirstName.helperText = "Please enter first name"
+
+                return false
+            }
+
+            if (etLastName.text.isNullOrBlank()) {
+                lLastName.helperText = "Please enter last name"
+
+                return false
+            }
+
+            if (etIdNumber.text.isNullOrBlank()) {
+                lIdNumber.helperText = "Please enter id number"
+
+                return false
+            }
+
+            if (etPhoneNumber.text.isNullOrEmpty()) {
+                lPhoneNumber.helperText = "Please enter your phone number"
+
+                return false
+            }
+
+            if (!validateEmail(etEmailAddress.text.toString())) {
+                return false
+            }
+
+            return true
         }
 
-        if (binding.etLastName.text.isNullOrBlank()) {
-            binding.lLastName.helperText = "Please enter last name"
-
-            return false
-        }
-
-        if (binding.etIdNumber.text.isNullOrBlank()) {
-            binding.lIdNumber.helperText = "Please enter id number"
-
-            return false
-        }
-
-        if (binding.etPhoneNumber.text.isNullOrEmpty()) {
-            binding.lPhoneNumber.helperText = "Please enter your phone number"
-
-            return false
-        }
-
-        if (!validateEmail(binding.etEmailAddress.text.toString())) {
-            return false
-        }
-
-        return true
     }
 
     private fun validateEmail(email: String): Boolean {
@@ -111,11 +115,14 @@ class CreateAccountFragment : Fragment() {
 
     private fun hideErrorMessage() {
 
-        binding.lFirstName.helperText = null
-        binding.lLastName.helperText = null
-        binding.lPhoneNumber.helperText = null
-        binding.lEmail.helperText = null
-        binding.lIdNumber.helperText = null
+        binding.apply {
+
+            lFirstName.helperText = null
+            lLastName.helperText = null
+            lPhoneNumber.helperText = null
+            lEmail.helperText = null
+            lIdNumber.helperText = null
+        }
     }
 
 }

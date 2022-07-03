@@ -56,10 +56,13 @@ class SplashActivity : AppCompatActivity() {
         val logoAnimation = AnimationUtils.loadAnimation(this, R.anim.splash_logo_anim)
         val logoNameAnimation = AnimationUtils.loadAnimation(this, R.anim.splash_logo_name_anim)
 
-        binding.appLogo .visibility = View.VISIBLE
-        binding.logoName.visibility = View.VISIBLE
+        binding.apply {
 
-        binding.appLogo.startAnimation(logoAnimation)
-        binding.logoName.startAnimation(logoNameAnimation)
+            appLogo .visibility = View.VISIBLE
+            logoName.visibility = View.VISIBLE
+
+            appLogo.startAnimation(logoAnimation)
+            logoName.startAnimation(logoNameAnimation)
+        }
     }
 }
