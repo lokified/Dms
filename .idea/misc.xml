@@ -4,7 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/bottom_sheet_bg.xml" value="0.1385" />
+        <entry key="app/src/main/res/drawable/company_bg.xml" value="0.1465" />
+        <entry key="app/src/main/res/drawable/dashboard_bg.xml" value="0.1465" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog_request_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_withdraw_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_request.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_security_questions.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/loan_company_list_item_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/radio_layout.xml" value="0.25" />
       </map>
     </option>
   </component>

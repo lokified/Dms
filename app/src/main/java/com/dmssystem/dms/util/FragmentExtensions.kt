@@ -1,6 +1,7 @@
 package com.dmssystem.dms.util
 
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 
 fun Fragment.setStatusBarColor(color: Int) {
@@ -23,4 +24,9 @@ fun Fragment.lightStatusBar() {
         lightStatusBar()
     }
 
+}
+
+fun Fragment.showToast(content: String) {
+
+    Toast.makeText(context, content, Toast.LENGTH_SHORT).show()
 }

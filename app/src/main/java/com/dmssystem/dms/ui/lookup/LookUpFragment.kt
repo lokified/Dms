@@ -60,7 +60,7 @@ class LookUpFragment : Fragment() {
                     val action = LookUpFragmentDirections.actionLookUpFragmentToLoginFragment(null,false)
                     findNavController().navigate(action)
 
-                }, 6000)
+                }, 1000)
 
                 popup.createVerifyPopup(context)
                 popup.numberText.text = "We’ve sent a verification code to $phoneNumber"

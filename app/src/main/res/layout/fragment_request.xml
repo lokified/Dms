@@ -47,10 +47,12 @@
         android:id="@+id/loan_company_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settle_txt"
-        tools:listitem="@layout/loan_company_list_item_layout"
-        tools:itemCount="4"/>
+        tools:itemCount="4"
+        tools:listitem="@layout/loan_company_list_item_layout" />
 
     <Button
         android:id="@+id/continue_btn"
