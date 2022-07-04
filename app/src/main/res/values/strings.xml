@@ -59,5 +59,12 @@
     <string name="let_s_verify_your_account">Let’s verify your account</string>
     <string name="kindly_provide">Kindly provide your ID number</string>
     <string name="timiza">Timiza</string>
+    <string name="national_id_details">National ID details</string>
+    <string name="take_while">This may take a while please bear with us….</string>
+    <string name="hold_on">Hold on as we check if you \nqualify</string>
+    <string name="hurray">Hurray you qualify for a us \nTo repay your loan</string>
+    <string name="successful_txt">We’ve successfully settled your loan and borrowed on your \nBehalf and deposited the new borrowing in to your wallet. \nGo home and check your wallet balance.</string>
+    <string name="oops">Oops you don’t qualify for a \nFull amount, top up to repay \nyour loan in full</string>
+    <string name="top_up_via">Top-up via</string>
 
 </resources>

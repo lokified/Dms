@@ -1,5 +1,6 @@
 package com.dmssystem.dms.ui.request
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
 import androidx.fragment.app.Fragment
@@ -7,16 +8,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.compose.ui.window.Dialog
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentRequestBinding
 import com.dmssystem.dms.ui.lookup.LookUpFragmentDirections
-import com.dmssystem.dms.util.VerifyPopup
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
-import com.dmssystem.dms.util.showToast
+import com.dmssystem.dms.util.*
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
@@ -29,7 +28,6 @@ class RequestFragment : Fragment() {
     private lateinit var requestBtn: MaterialButton
     private lateinit var idNumber: TextInputEditText
 
-    private val popup = VerifyPopup()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,8 +57,7 @@ class RequestFragment : Fragment() {
 
 
             continueBtn.setOnClickListener {
-
-               showIdCheckDialog()
+                showIdCheckDialog()
             }
         }
 
@@ -102,20 +99,71 @@ class RequestFragment : Fragment() {
 
         requestBtn.setOnClickListener {
 
+            bottomSheetDialog.dismiss()
+
+            val checkPopup = Popup()
+
             Handler().postDelayed(Runnable {
 
-                popup.dialog.dismiss()
-                popup.timeCountdown.cancel()
+                checkPopup.dialog.dismiss()
+
+                //showSuccessPopup()
+                showDenialPopup()
 
             }, 3000)
 
-            popup.createVerifyPopup(context)
-            popup.numberText.text = "We’ve sent a verification code to "
-            popup.timeCountdown.start()
+
+            checkPopup.createPopup(requireContext(), R.layout.check_qualification_popup_layout)
+
 
         }
 
         bottomSheetDialog.show()
 
+    }
+
+
+    private fun showSuccessPopup() {
+
+        val successPopup = Popup()
+        successPopup.createPopup(requireContext(), R.layout.success_loan_qualification_layout)
+        val goToHomeBtn = successPopup.view.findViewById<MaterialButton>(R.id.go_back_btn)
+
+        goToHomeBtn.setOnClickListener {
+            successPopup.dialog.cancel()
+        }
+    }
+
+
+    private fun showDenialPopup() {
+
+        val denialPopup = Popup()
+        denialPopup.createPopup(requireContext(), R.layout.denial_loan_qualification_layout)
+        val topUpBtn = denialPopup.view.findViewById<MaterialButton>(R.id.top_up_btn)
+        val goToHomeBtn = denialPopup.view.findViewById<MaterialButton>(R.id.go_back_home_btn)
+
+        topUpBtn.setOnClickListener {
+
+            showTopUpDialog()
+        }
+
+        goToHomeBtn.setOnClickListener {
+            denialPopup.dialog.cancel()
+        }
+    }
+
+
+    private fun showTopUpDialog() {
+        val bottomSheetDialog = BottomSheetDialog(requireContext())
+        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_top_up_layout)
+
+        val continueBtn: MaterialButton = bottomSheetDialog.findViewById(R.id.action_topUp_sheet_btn)!!
+
+        continueBtn.setOnClickListener {
+            showToast("top up success")
+
+        }
+
+        bottomSheetDialog.show()
     }
 }
