@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.compose.ui.window.Dialog
 import androidx.core.content.ContextCompat
@@ -141,6 +142,7 @@ class RequestFragment : Fragment() {
         denialPopup.createPopup(requireContext(), R.layout.denial_loan_qualification_layout)
         val topUpBtn = denialPopup.view.findViewById<MaterialButton>(R.id.top_up_btn)
         val goToHomeBtn = denialPopup.view.findViewById<MaterialButton>(R.id.go_back_home_btn)
+        val backImg: ImageView = denialPopup.view.findViewById(R.id.arrow_back_denial)
 
         topUpBtn.setOnClickListener {
 
@@ -148,6 +150,10 @@ class RequestFragment : Fragment() {
         }
 
         goToHomeBtn.setOnClickListener {
+            denialPopup.dialog.cancel()
+        }
+
+        backImg.setOnClickListener {
             denialPopup.dialog.cancel()
         }
     }

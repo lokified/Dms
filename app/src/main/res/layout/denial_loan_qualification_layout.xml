@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/arrow_back_success"
+        android:id="@+id/arrow_back_denial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -25,7 +25,7 @@
         android:textColor="@color/black"
         android:textSize="22sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/arrow_back_success" />
+        app:layout_constraintTop_toBottomOf="@+id/arrow_back_denial" />
 
     <TextView
         android:id="@+id/success_txt"
@@ -42,7 +42,7 @@
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/not_qualified_animation"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="260dp"
         android:layout_marginTop="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
@@ -53,19 +53,22 @@
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/not_qualified" />
 
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/top_up_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Top up"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/continue_btn_bg"
+        android:text="Top up"
         app:layout_constraintBottom_toTopOf="@+id/go_back_home_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintTop_toBottomOf="@+id/not_qualified_animation"
+        app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/go_back_home_btn"

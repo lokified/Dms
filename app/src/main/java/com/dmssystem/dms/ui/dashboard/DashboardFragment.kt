@@ -55,6 +55,12 @@ class DashboardFragment : Fragment() {
                 val action = DashboardFragmentDirections.actionDashboardFragmentToRequestFragment()
                 findNavController().navigate(action)
             }
+
+            notificationImg.setOnClickListener {
+
+                val action = DashboardFragmentDirections.actionDashboardFragmentToNotificationsFragment()
+                findNavController().navigate(action)
+            }
         }
     }
 

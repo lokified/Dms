@@ -119,6 +119,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_depositFragment"
             app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
     </fragment>
     <fragment
         android:id="@+id/requestFragment"
@@ -156,4 +159,9 @@
             android:id="@+id/action_anotherMethodFragment_to_pinFragment"
             app:destination="@id/pinFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.dmssystem.dms.ui.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
 </navigation>

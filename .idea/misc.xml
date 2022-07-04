@@ -17,9 +17,12 @@
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_deposit.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_request.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_security_questions.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/loan_company_list_item_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/notification_item_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/radio_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/success_loan_qualification_layout.xml" value="0.25" />
       </map>

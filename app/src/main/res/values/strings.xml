@@ -66,5 +66,11 @@
     <string name="successful_txt">We’ve successfully settled your loan and borrowed on your \nBehalf and deposited the new borrowing in to your wallet. \nGo home and check your wallet balance.</string>
     <string name="oops">Oops you don’t qualify for a \nFull amount, top up to repay \nyour loan in full</string>
     <string name="top_up_via">Top-up via</string>
+    <string name="notification">Notifications</string>
+    <string name="withdrawal_failed">Withdrawal failed</string>
+    <string name="deposit_successful">Deposit successful</string>
+    <string name="request_loan_payment_successful">Request loan Payment successful</string>
+    <string name="request_loan_payment_failed">Request loan Payment failed</string>
+    <string name="_10_32pm">10:32pm</string>
 
 </resources>
