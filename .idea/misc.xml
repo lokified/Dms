@@ -14,6 +14,7 @@
         <entry key="app/src/main/res/layout/bottom_sheet_dialog_withdraw_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/check_qualification_popup_layout.xml" value="0.25" />
         <entry key="app/src/main/res/layout/denial_loan_qualification_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_another_method.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_deposit.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
