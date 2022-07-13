@@ -3,6 +3,7 @@ package com.dmssystem.dms.ui.request
 import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Handler
+import android.text.InputType
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -17,9 +18,12 @@ import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentRequestBinding
 import com.dmssystem.dms.ui.lookup.LookUpFragmentDirections
 import com.dmssystem.dms.util.*
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputEditText
+import java.text.SimpleDateFormat
 
 class RequestFragment : Fragment() {
 
@@ -28,6 +32,8 @@ class RequestFragment : Fragment() {
 
     private lateinit var requestBtn: MaterialButton
     private lateinit var idNumber: TextInputEditText
+    private lateinit var phoneNumber: TextInputEditText
+    private lateinit var dateDue: TextInputEditText
 
 
     override fun onCreateView(
@@ -96,20 +102,31 @@ class RequestFragment : Fragment() {
 
         requestBtn = bottomSheetDialog.findViewById(R.id.action_sheet_btn)!!
         idNumber = bottomSheetDialog.findViewById(R.id.et_id_number_request)!!
+        phoneNumber = bottomSheetDialog.findViewById(R.id.et_phone_number_request)!!
+        dateDue = bottomSheetDialog.findViewById(R.id.et_due_date_request)!!
 
+
+        dateDue.inputType = InputType.TYPE_NULL
+
+        dateDue.setOnClickListener {
+            dateDue.setOnKeyListener(null)
+            showDatePicker()
+        }
 
         requestBtn.setOnClickListener {
 
             bottomSheetDialog.dismiss()
 
+            //checks for loan company
             val checkPopup = Popup()
 
             Handler().postDelayed(Runnable {
 
                 checkPopup.dialog.dismiss()
 
-                //showSuccessPopup()
-                showDenialPopup()
+                //navigate to loan details
+                val action = RequestFragmentDirections.actionRequestFragmentToLoanDetailsFragment()
+                findNavController().navigate(action)
 
             }, 3000)
 
@@ -123,53 +140,19 @@ class RequestFragment : Fragment() {
 
     }
 
+    private fun showDatePicker() {
 
-    private fun showSuccessPopup() {
+        val datePicker = MaterialDatePicker.Builder.datePicker()
+            .setTitleText("Select Due date")
+            .setSelection(MaterialDatePicker.todayInUtcMilliseconds())
+            .build()
 
-        val successPopup = Popup()
-        successPopup.createPopup(requireContext(), R.layout.success_loan_qualification_layout)
-        val goToHomeBtn = successPopup.view.findViewById<MaterialButton>(R.id.go_back_btn)
-
-        goToHomeBtn.setOnClickListener {
-            successPopup.dialog.cancel()
-        }
-    }
-
-
-    private fun showDenialPopup() {
-
-        val denialPopup = Popup()
-        denialPopup.createPopup(requireContext(), R.layout.denial_loan_qualification_layout)
-        val topUpBtn = denialPopup.view.findViewById<MaterialButton>(R.id.top_up_btn)
-        val goToHomeBtn = denialPopup.view.findViewById<MaterialButton>(R.id.go_back_home_btn)
-        val backImg: ImageView = denialPopup.view.findViewById(R.id.arrow_back_denial)
-
-        topUpBtn.setOnClickListener {
-
-            showTopUpDialog()
+        datePicker.addOnPositiveButtonClickListener {
+            val dateFormat = SimpleDateFormat("dd/MM/yyyy")
+            val formattedDate = dateFormat.format(it)
+            dateDue.setText(formattedDate)
         }
 
-        goToHomeBtn.setOnClickListener {
-            denialPopup.dialog.cancel()
-        }
-
-        backImg.setOnClickListener {
-            denialPopup.dialog.cancel()
-        }
-    }
-
-
-    private fun showTopUpDialog() {
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_top_up_layout)
-
-        val continueBtn: MaterialButton = bottomSheetDialog.findViewById(R.id.action_topUp_sheet_btn)!!
-
-        continueBtn.setOnClickListener {
-            showToast("top up success")
-
-        }
-
-        bottomSheetDialog.show()
+        datePicker.show(fragmentManager?.beginTransaction()!!, "Due Date")
     }
 }

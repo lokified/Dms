@@ -45,7 +45,7 @@
     <string name="loan_manager">Loan Manager</string>
     <string name="deposit_money">Deposit Money</string>
     <string name="withdraw_money">Withdraw Money</string>
-    <string name="request_loan_payment">Request loan Payment</string>
+    <string name="request_loan_payment">Register Loan for payment</string>
     <string name="transaction_history">Transaction history</string>
     <string name="loan_payment_request">Loan payment Request</string>
     <string name="request_loan">Request Loan payment</string>
@@ -72,5 +72,9 @@
     <string name="request_loan_payment_successful">Request loan Payment successful</string>
     <string name="request_loan_payment_failed">Request loan Payment failed</string>
     <string name="_10_32pm">10:32pm</string>
+    <string name="consent">We need you to allow DMS to borrow another loan upon settling your existing loan with a slight charge from accessing our services, your existing loan will be settled and borrowed again on your behalf. \n\nWith your permission and consent we will only borrow within your loan limits and also have a percentage charge of 10% on your current loan. \n\nUpon your consent we will notify the third party application that you have granted us permission to borrow on your behalf and they will send you a notification when we make the borrowing on your behalf. \n\nYou may choose to revoke this consent prior to us borrowing the loan by deregistering your loan at anytime or you can send us a request to delete the loan registered but this will be possible only 24hrs before we settle the loan. \n\nOnce we clear the loan you will deal with the loan application that you took your loan and our agreement will be terminated upon settling and re-borrowing. \n\nWe will not share or disclose your loan status to any third parties other than your loan application without your consent. \n\nPlease read full Data privacy policy</string>
+    <string name="consent_checkBox">I consent to giving DMS permission to borrow on \nmy behalf upon settling of my existing loan</string>
+    <string name="third_party_loan_application">Third party loan application</string>
+    <string name="consent_to_borrowing">Consent to borrowing</string>
 
 </resources>

@@ -11,6 +11,7 @@
     <color name="colorPrimary">#59B2B9</color>
     <color name="colorSecondary">#707070</color>
     <color name="hintColor">#525252</color>
+    <color name="placeholderColor">#AAA8A8</color>
     <color name="helperTextColor">#A31515</color>
     <color name="dashboardBgColor">#F7F7F7</color>
     <color name="sheetColor">#6C6C6C</color>

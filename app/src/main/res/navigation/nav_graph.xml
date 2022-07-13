@@ -20,7 +20,7 @@
             android:id="@+id/action_landingFragment_to_loginFragment"
             app:destination="@id/loginFragment" />
         <argument
-            android:name="isCreatePinFragment"
+            android:name="showLoginLayout"
             app:argType="boolean"
             android:defaultValue="false" />
         <argument
@@ -81,8 +81,8 @@
         android:label="fragment_look_up"
         tools:layout="@layout/fragment_look_up" >
         <action
-            android:id="@+id/action_lookUpFragment_to_loginFragment"
-            app:destination="@id/loginFragment" />
+            android:id="@+id/action_lookUpFragment_to_landingFragment"
+            app:destination="@id/landingFragment"/>
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -127,7 +127,11 @@
         android:id="@+id/requestFragment"
         android:name="com.dmssystem.dms.ui.request.RequestFragment"
         android:label="fragment_request"
-        tools:layout="@layout/fragment_request" />
+        tools:layout="@layout/fragment_request" >
+        <action
+            android:id="@+id/action_requestFragment_to_loanDetailsFragment"
+            app:destination="@id/loanDetailsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/withdrawFragment"
         android:name="com.dmssystem.dms.ui.withdraw.WithdrawFragment"
@@ -164,4 +168,24 @@
         android:name="com.dmssystem.dms.ui.notifications.NotificationsFragment"
         android:label="fragment_notifications"
         tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/loanDetailsFragment"
+        android:name="com.dmssystem.dms.ui.request.LoanDetailsFragment"
+        android:label="fragment_loan_details"
+        tools:layout="@layout/fragment_loan_details" >
+        <action
+            android:id="@+id/action_loanDetailsFragment_to_authorizeFragment"
+            app:destination="@id/authorizeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorizeFragment"
+        android:name="com.dmssystem.dms.ui.request.AuthorizeFragment"
+        android:label="fragment_authorize"
+        tools:layout="@layout/fragment_authorize" >
+        <action
+            android:id="@+id/action_authorizeFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
 </navigation>

@@ -70,6 +70,9 @@
         android:layout_marginEnd="16dp"
         android:textColorHint="#525252"
         android:hint="@string/phone_number"
+        app:placeholderText="+254712345678"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:expandedHintEnabled="false"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/helperTextColor"
         app:boxStrokeColor="#707070"
@@ -82,6 +85,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="text"
+            android:drawableStart="@drawable/ic_kenya"
             android:textColor="#525252" />
 
     </com.google.android.material.textfield.TextInputLayout>

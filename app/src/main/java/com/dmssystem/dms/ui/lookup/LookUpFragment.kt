@@ -57,7 +57,7 @@ class LookUpFragment : Fragment() {
                     popup.dialog.dismiss()
                     popup.timeCountdown.cancel()
 
-                    val action = LookUpFragmentDirections.actionLookUpFragmentToLoginFragment(null,false)
+                    val action = LookUpFragmentDirections.actionLookUpFragmentToLandingFragment(true)
                     findNavController().navigate(action)
 
                 }, 5000)

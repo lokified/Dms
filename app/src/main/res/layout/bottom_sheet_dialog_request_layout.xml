@@ -24,11 +24,41 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/national_id_details"
+        android:text="Loan details"
+        android:textSize="16sp"
         android:fontFamily="@font/nunito_sans_bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_phoneNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="#525252"
+        app:placeholderText="+254712345678"
+        app:placeholderTextColor="@color/placeholderColor"
+        android:hint="Phone Number"
+        app:expandedHintEnabled="false"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        app:boxStrokeColor="#707070"
+        app:hintTextColor="#525252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/id_txt">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone_number_request"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:drawableStart="@drawable/ic_kenya"
+            android:textColor="#525252"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/l_id"
@@ -40,18 +70,50 @@
         android:layout_marginEnd="16dp"
         android:textColorHint="#525252"
         android:hint="ID Number"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:placeholderText="Eg.12345678"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/helperTextColor"
+        app:expandedHintEnabled="false"
         app:boxStrokeColor="#707070"
         app:hintTextColor="#525252"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/id_txt">
+        app:layout_constraintTop_toBottomOf="@+id/l_phoneNumber">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_id_number_request"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:textColor="#525252"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_due_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="#525252"
+        app:expandedHintEnabled="false"
+        android:hint="Due date"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:placeholderText="eg. 01/08/2022"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        app:boxStrokeColor="#707070"
+        app:hintTextColor="#525252"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_id">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_due_date_request"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:textColor="#525252"
+            android:drawableEnd="@drawable/ic_calendar"/>
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -72,5 +134,5 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/l_id"/>
+        app:layout_constraintTop_toBottomOf="@+id/l_due_date"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -34,7 +34,7 @@ class LandingFragment : Fragment() {
 
         setStatusBarColor(resources.getColor(R.color.colorPrimary))
 
-        if (args.isCreatePinFragment) {
+        if (args.showLoginLayout) {
 
             setUpLoginLayout()
         }
