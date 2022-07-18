@@ -48,7 +48,7 @@ class DepositFragment : Fragment() {
 
                 val amount = binding.etAmount.text.toString()
 
-                showDepositDialog(amount, "0712345678")
+                showDepositDialog(amount, "725992494")
 
             }
 

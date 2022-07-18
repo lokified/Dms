@@ -111,6 +111,7 @@
             app:helperTextTextColor="@color/helperTextColor"
             app:boxStrokeColor="#707070"
             app:hintTextColor="#525252"
+            app:prefixText="+254"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/l_select_method">
 
@@ -125,22 +126,41 @@
         </com.google.android.material.textfield.TextInputLayout>
 
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/deposit_btn"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="32dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="24dp"
-            style="@style/sheet_button"
-            app:backgroundTint="@null"
-            android:backgroundTint="@null"
-            android:fontFamily="@font/nunito_sans_extrabold"
-            android:text="Deposit"
-            android:textSize="12sp"
+            android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/l_phone_number"/>
+            app:layout_constraintTop_toBottomOf="@+id/l_phone_number">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/deposit_btn"
+                style="@style/sheet_button"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="32dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                android:backgroundTint="@null"
+                android:fontFamily="@font/nunito_sans_extrabold"
+                android:text="Deposit"
+                android:textSize="12sp"
+                app:backgroundTint="@null" />
+
+            <ProgressBar
+                android:id="@+id/loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_gravity="center"
+                android:backgroundTint="@null"
+                android:indeterminate="true"
+                android:indeterminateDrawable="@drawable/progress_bg"
+                android:progress="0"
+                android:visibility="gone"
+                app:backgroundTint="@null" />
+        </FrameLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

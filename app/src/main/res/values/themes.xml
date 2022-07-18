@@ -106,4 +106,8 @@
         <item name="android:windowMinWidthMinor">99%</item>
     </style>
 
+    <!-- consent style -->
+    <style name="progress_style" parent="Widget.MaterialComponents.CircularProgressIndicator">
+        <item name="indicatorColor">@color/white</item>
+    </style>
 </resources>

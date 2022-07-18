@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/company_bg.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/dashboard_bg.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/ic_bald_man_holding_phone.xml" value="0.19" />
+        <entry key="app/src/main/res/drawable/progress_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/view_bg.xml" value="0.1935" />
         <entry key="app/src/main/res/layout/account_verify_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.19375" />
