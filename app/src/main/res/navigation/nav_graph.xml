@@ -176,6 +176,11 @@
         <action
             android:id="@+id/action_loanDetailsFragment_to_authorizeFragment"
             app:destination="@id/authorizeFragment" />
+        <action
+            android:id="@+id/action_loanDetailsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/authorizeFragment"
@@ -183,9 +188,37 @@
         android:label="fragment_authorize"
         tools:layout="@layout/fragment_authorize" >
         <action
-            android:id="@+id/action_authorizeFragment_to_dashboardFragment"
+            android:id="@+id/action_authorizeFragment_to_successPopupDialog"
+            app:destination="@id/successPopupDialog" />
+        <action
+            android:id="@+id/action_authorizeFragment_to_unsuccessfulpopupDialog"
+            app:destination="@id/unsuccessfulpopupDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/successPopupDialog"
+        android:name="com.dmssystem.dms.util.dialogs.SuccessPopupDialog"
+        android:label="SuccessPopupDialog"
+        tools:layout="@layout/success_loan_qualification_layout">
+        <action
+            android:id="@+id/action_successPopupDialog_to_dashboardFragment"
             app:destination="@id/dashboardFragment"
             app:popUpTo="@id/dashboardFragment"
             app:popUpToInclusive="false" />
     </fragment>
+    <fragment
+        android:id="@+id/unsuccessfulpopupDialog"
+        android:name="com.dmssystem.dms.util.dialogs.UnsuccessfulpopupDialog"
+        android:label="UnsuccessfulpopupDialog"
+        tools:layout="@layout/denial_loan_qualification_layout">
+        <action
+            android:id="@+id/action_unsuccessfulpopupDialog_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/consentPopupDialog"
+        android:name="com.dmssystem.dms.util.dialogs.ConsentPopupDialog"
+        android:label="ConsentPopupDialog"
+        tools:layout="@layout/consent_bottom_sheet_layout"/>
 </navigation>

@@ -8,11 +8,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentAuthorizeBinding
 import com.dmssystem.dms.ui.login.LoginFragmentDirections
 import com.dmssystem.dms.util.Popup
+import com.dmssystem.dms.util.dialogs.SuccessPopupDialog
+import com.dmssystem.dms.util.dialogs.UnsuccessfulpopupDialog
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
 import com.dmssystem.dms.util.showToast
@@ -165,60 +168,21 @@ class AuthorizeFragment : Fragment() {
 
     private fun showSuccessPopup() {
 
-        val successPopup = Popup()
-        successPopup.createPopup(requireContext(), R.layout.success_loan_qualification_layout)
-        val goToHomeBtn = successPopup.view.findViewById<MaterialButton>(R.id.go_back_btn)
+        val successPopup = SuccessPopupDialog()
+        successPopup.show(parentFragmentManager, "DIALOG")
 
-        goToHomeBtn.setOnClickListener {
-            //navigate to dashboard
-            navigateToDashboard()
-            successPopup.dialog.dismiss()
-        }
-    }
-
-
-    private fun showDenialPopup() {
-
-        val denialPopup = Popup()
-        denialPopup.createPopup(requireContext(), R.layout.denial_loan_qualification_layout)
-        val topUpBtn = denialPopup.view.findViewById<MaterialButton>(R.id.top_up_btn)
-        val goToHomeBtn = denialPopup.view.findViewById<MaterialButton>(R.id.go_back_home_btn)
-        val backImg: ImageView = denialPopup.view.findViewById(R.id.arrow_back_denial)
-
-        topUpBtn.setOnClickListener {
-
-            showTopUpDialog()
-        }
-
-        goToHomeBtn.setOnClickListener {
-            //navigate to dashboard
-            navigateToDashboard()
-            denialPopup.dialog.dismiss()
-        }
-
-        backImg.setOnClickListener {
-            denialPopup.dialog.cancel()
-        }
-    }
-
-
-    private fun showTopUpDialog() {
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(R.layout.bottom_sheet_dialog_top_up_layout)
-
-        val continueBtn: MaterialButton = bottomSheetDialog.findViewById(R.id.action_topUp_sheet_btn)!!
-
-        continueBtn.setOnClickListener {
-            showToast("top up success")
-
-        }
-
-        bottomSheetDialog.show()
-    }
-
-    private fun navigateToDashboard() {
-
-        val action = AuthorizeFragmentDirections.actionAuthorizeFragmentToDashboardFragment()
+        val action = AuthorizeFragmentDirections.actionAuthorizeFragmentToSuccessPopupDialog()
         findNavController().navigate(action)
     }
+
+
+    private fun showUnsuccessfulPopup() {
+
+        val unsuccessfulPopup = UnsuccessfulpopupDialog()
+        unsuccessfulPopup.show(parentFragmentManager, "DIALOG")
+
+        val action = AuthorizeFragmentDirections.actionAuthorizeFragmentToUnsuccessfulpopupDialog()
+        findNavController().navigate(action)
+    }
+
 }

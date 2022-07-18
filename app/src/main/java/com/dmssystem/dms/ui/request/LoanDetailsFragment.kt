@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLoanDetailsBinding
+import com.dmssystem.dms.util.dialogs.ConsentPopupDialog
+import com.dmssystem.dms.util.dialogs.TopUpDialog
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
 
 class LoanDetailsFragment : Fragment() {
 
@@ -36,33 +35,82 @@ class LoanDetailsFragment : Fragment() {
 
         lightStatusBar()
 
-        binding.registerBtn.setOnClickListener {
+        showUnsuccessfulLayout()
 
-            showConsentDetailPopUp()
-        }
+        binding.apply {
 
-        binding.arrowBack.setOnClickListener {
-            findNavController().navigateUp()
+            registerBtn.setOnClickListener {
+
+                showConsentDetailPopUp()
+            }
+
+            arrowBack.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
     }
 
 
     private fun showConsentDetailPopUp() {
 
-        val bottomSheetDialog = BottomSheetDialog(requireContext())
-        bottomSheetDialog.setContentView(R.layout.consent_bottom_sheet_layout)
-        bottomSheetDialog.behavior.state = BottomSheetBehavior.STATE_EXPANDED
+        val popupDialog = ConsentPopupDialog()
+        popupDialog.setOnButtonClickListener(onClickListener)
+        popupDialog.show(parentFragmentManager, "Pop up")
+    }
 
-        val continueBtn: MaterialButton = bottomSheetDialog.findViewById(R.id.continue_consent_btn)!!
+    private val onClickListener = object : ConsentPopupDialog.OnContinueListener {
 
-        continueBtn.setOnClickListener {
+        override fun onClick(button: View) {
 
-            //navigate to authorize screen
-            val action = LoanDetailsFragmentDirections.actionLoanDetailsFragmentToAuthorizeFragment()
-            findNavController().navigate(action)
-            bottomSheetDialog.dismiss()
+            navigateToAuthorize()
         }
+    }
 
-        bottomSheetDialog.show()
+    private fun showUnsuccessfulLayout() {
+
+        binding.apply {
+
+            registerBtn.visibility = View.GONE
+
+            successTxt.text = "We are not able to settle your full loan. Kindly top up \nKSH 500 for us to settle your loan fully."
+            topUpBtn.visibility = View.VISIBLE
+            backHomeBtn.visibility = View.VISIBLE
+
+            backHomeBtn.setOnClickListener {
+
+               navigateToDashboard()
+            }
+
+            topUpBtn.setOnClickListener {
+                showTopUpDialog("500")
+            }
+        }
+    }
+
+    private fun showTopUpDialog(amount: String) {
+
+        val topUpBottomSheet = TopUpDialog(amount)
+        topUpBottomSheet.setOnContinueClickListener(onContinueListener)
+        topUpBottomSheet.show(parentFragmentManager, TopUpDialog.TAG)
+    }
+
+    private val onContinueListener = object : TopUpDialog.OnContinueListener {
+
+        override fun onClick(button: View) {
+
+            showConsentDetailPopUp()
+        }
+    }
+
+    private fun navigateToDashboard() {
+
+        val action = LoanDetailsFragmentDirections.actionLoanDetailsFragmentToDashboardFragment()
+        findNavController().navigate(action)
+    }
+
+    private fun navigateToAuthorize() {
+
+        val action = LoanDetailsFragmentDirections.actionLoanDetailsFragmentToAuthorizeFragment()
+        findNavController().navigate(action)
     }
 }

@@ -110,12 +110,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/withdraw_layout"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="61dp"
         android:layout_marginTop="8dp"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="10dp"
-        app:layout_constraintEnd_toStartOf="@+id/deposit_layout"
         app:layout_constraintStart_toStartOf="@+id/quick_actions_txt"
         app:layout_constraintTop_toBottomOf="@+id/quick_actions_txt">
 
@@ -135,8 +134,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="@string/withdraw_money"
                 android:fontFamily="@font/nunito_sans"
+                android:text="@string/withdraw_money"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
         </LinearLayout>
@@ -146,12 +145,11 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/deposit_layout"
-        android:layout_width="150dp"
+        android:layout_width="160dp"
         android:layout_height="61dp"
         android:layout_marginEnd="16dp"
         app:cardBackgroundColor="@color/colorPrimary"
         app:cardCornerRadius="10dp"
-        app:layout_constraintStart_toEndOf="@id/withdraw_layout"
         app:layout_constraintBottom_toBottomOf="@+id/withdraw_layout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/withdraw_layout">
@@ -161,22 +159,22 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:padding="10dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="10dp">
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_deposit_icon"/>
+                android:src="@drawable/ic_deposit_icon" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/deposit_money"
-                android:fontFamily="@font/nunito_sans"
-                android:textSize="12sp"
                 android:layout_marginStart="8dp"
-                android:textColor="@color/white"/>
+                android:fontFamily="@font/nunito_sans"
+                android:text="@string/deposit_money"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

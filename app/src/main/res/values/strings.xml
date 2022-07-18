@@ -62,9 +62,10 @@
     <string name="national_id_details">National ID details</string>
     <string name="take_while">This may take a while please bear with us….</string>
     <string name="hold_on">Hold on as we check if you \nqualify</string>
-    <string name="hurray">Hurray you qualify for a us \nTo repay your loan</string>
-    <string name="successful_txt">We’ve successfully settled your loan and borrowed on your \nBehalf and deposited the new borrowing in to your wallet. \nGo home and check your wallet balance.</string>
-    <string name="oops">Oops you don’t qualify for a \nFull amount, top up to repay \nyour loan in full</string>
+    <string name="hurray">Hurray you’ve successfully \nregistered your loan</string>
+    <string name="successful_txt">We will notify you after we settle your loan</string>
+    <string name="thank_you">Thank you for choosing us!</string>
+    <string name="oops">Oops! Something went wrong With this registration</string>
     <string name="top_up_via">Top-up via</string>
     <string name="notification">Notifications</string>
     <string name="withdrawal_failed">Withdrawal failed</string>
@@ -76,5 +77,7 @@
     <string name="consent_checkBox">I consent to giving DMS permission to borrow on \nmy behalf upon settling of my existing loan</string>
     <string name="third_party_loan_application">Third party loan application</string>
     <string name="consent_to_borrowing">Consent to borrowing</string>
+    <string name="success_loan_detail">We’ve broken down your loan and how we will structure \nThe payment after we settle the loan</string>
+    <string name="apologise">We apologise for any inconvenience. Kindly try again later</string>
 
 </resources>
