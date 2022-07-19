@@ -89,7 +89,7 @@ class WithdrawFragment : Fragment() {
 
             tvAmount.visibility = View.INVISIBLE
             etAmount.visibility = View.VISIBLE
-            etAmount.append(entry)
+            inputConnection.commitText(entry, 1)
         }
     }
 
