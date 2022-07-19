@@ -9,12 +9,11 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
-import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
-import com.dmssystem.dms.util.VerifyPopup
+import com.dmssystem.dms.util.dialogs.VerifyPopup
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
 

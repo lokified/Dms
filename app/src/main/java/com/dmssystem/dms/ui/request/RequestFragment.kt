@@ -11,8 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentRequestBinding
 import com.dmssystem.dms.util.*
+import com.dmssystem.dms.util.dialogs.Popup
 import com.dmssystem.dms.util.dialogs.RegisterLoanDialog
-import kotlin.concurrent.thread
 
 class RequestFragment : Fragment() {
 

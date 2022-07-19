@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util
+package com.dmssystem.dms.util.dialogs
 
 import android.app.AlertDialog
 import android.content.Context

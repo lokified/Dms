@@ -10,7 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLookUpBinding
-import com.dmssystem.dms.util.VerifyPopup
+import com.dmssystem.dms.util.dialogs.VerifyPopup
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
 

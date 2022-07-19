@@ -6,21 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import androidx.core.content.ContextCompat
-import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentAuthorizeBinding
-import com.dmssystem.dms.ui.login.LoginFragmentDirections
-import com.dmssystem.dms.util.Popup
 import com.dmssystem.dms.util.dialogs.SuccessPopupDialog
 import com.dmssystem.dms.util.dialogs.UnsuccessfulpopupDialog
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
-import com.dmssystem.dms.util.showToast
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
 
 class AuthorizeFragment : Fragment() {
 

@@ -10,7 +10,7 @@ import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentForgotPinBinding
-import com.dmssystem.dms.util.VerifyPopup
+import com.dmssystem.dms.util.dialogs.VerifyPopup
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
 
