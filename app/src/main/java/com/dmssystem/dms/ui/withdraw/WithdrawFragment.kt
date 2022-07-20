@@ -1,6 +1,7 @@
 package com.dmssystem.dms.ui.withdraw
 
 import android.os.Bundle
+import android.text.Editable
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -44,10 +45,16 @@ class WithdrawFragment : Fragment() {
 
             continueBtn.setOnClickListener {
 
-                val amount = binding.etAmount.text.toString()
+                if (validateAmount(etAmount.text)) {
 
-                //show bottom sheet dialog
-                showWithdrawalDialog(amount, "0712345678")
+                    withdrawWarningTxt.text = null
+                    withdrawWarningTxt.visibility = View.INVISIBLE
+
+                    val amount = binding.etAmount.text.toString()
+
+                    //show bottom sheet dialog
+                    showWithdrawalDialog(amount, "0712345678")
+                }
             }
 
 
@@ -62,6 +69,48 @@ class WithdrawFragment : Fragment() {
 
         val modalBottomSheet = WithdrawDialog(amount, contactNumber)
         modalBottomSheet.show(parentFragmentManager, WithdrawDialog.TAG)
+    }
+
+    private fun validateAmount(text: Editable?): Boolean{
+
+        binding.apply {
+
+            val amount = etAmount.text.toString()
+
+            if(text?.isEmpty()!!) {
+                showEditText()
+                withdrawWarningTxt.visibility = View.VISIBLE
+                withdrawWarningTxt.text = "Enter an amount to continue"
+                return false
+            }
+
+            else if (text.isNotEmpty()) {
+
+                showEditText()
+                val amountInt = amount.toInt()
+
+                if (amountInt in 1..49 && !amount.startsWith("0")) {
+
+                    withdrawWarningTxt.visibility = View.VISIBLE
+                    withdrawWarningTxt.text = "Minimum amount is Kes 50"
+                    return false
+                }
+                else if(amount.startsWith("0")){
+
+                    for (i in amount.indices) {
+
+                        if (amount[i].digitToInt() == 0) {
+
+                            withdrawWarningTxt.visibility = View.VISIBLE
+                            withdrawWarningTxt.text = "Enter a valid amount"
+                            return false
+                        }
+                    }
+                }
+            }
+
+            return true
+        }
     }
 
 
@@ -99,6 +148,15 @@ class WithdrawFragment : Fragment() {
         }
         else {
             commitText("", 1)
+        }
+    }
+
+    private fun showEditText() {
+
+        binding.apply {
+
+            tvAmount.visibility = View.INVISIBLE
+            etAmount.visibility = View.VISIBLE
         }
     }
 }

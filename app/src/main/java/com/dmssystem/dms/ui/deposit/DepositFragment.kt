@@ -1,12 +1,15 @@
 package com.dmssystem.dms.ui.deposit
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentDepositBinding
@@ -44,11 +47,18 @@ class DepositFragment : Fragment() {
 
             etAmount.showSoftInputOnFocus = false
 
+
             continueBtn.setOnClickListener {
 
-                val amount = binding.etAmount.text.toString()
+                if (validateAmount(etAmount.text)) {
 
-                showDepositDialog(amount, "725992494")
+                    withdrawWarningTxt.text = null
+                    withdrawWarningTxt.visibility = View.INVISIBLE
+
+                    val amount = etAmount.text.toString()
+
+                    showDepositDialog(amount, "725992494")
+                }
 
             }
 
@@ -64,6 +74,48 @@ class DepositFragment : Fragment() {
         val modalBottomSheet = DepositDialog(amount, contactNumber)
         modalBottomSheet.show(parentFragmentManager, DepositDialog.TAG)
 
+    }
+
+    private fun validateAmount(text: Editable?): Boolean{
+
+        binding.apply {
+
+            val amount = etAmount.text.toString()
+
+            if(text?.isEmpty()!!) {
+                showEditText()
+                withdrawWarningTxt.visibility = View.VISIBLE
+                withdrawWarningTxt.text = "Enter an amount to continue"
+                return false
+            }
+
+            else if (text.isNotEmpty()) {
+
+                showEditText()
+                val amountInt = amount.toInt()
+
+                if (amountInt in 1..99 && !amount.startsWith("0")) {
+
+                    withdrawWarningTxt.visibility = View.VISIBLE
+                    withdrawWarningTxt.text = "Minimum amount is Kes 100"
+                    return false
+                }
+                else if(amount.startsWith("0")){
+
+                    for (i in amount.indices) {
+
+                        if (amount[i].digitToInt() == 0) {
+
+                            withdrawWarningTxt.visibility = View.VISIBLE
+                            withdrawWarningTxt.text = "Enter a valid amount"
+                            return false
+                        }
+                    }
+                }
+            }
+
+            return true
+        }
     }
 
 
@@ -90,8 +142,7 @@ class DepositFragment : Fragment() {
     private fun controlPinPad1(entry: String) {
         binding.apply {
 
-            tvAmount.visibility = View.INVISIBLE
-            etAmount.visibility = View.VISIBLE
+            showEditText()
             inputConnection.commitText(entry, 1)
         }
     }
@@ -103,6 +154,15 @@ class DepositFragment : Fragment() {
         }
         else {
             commitText("", 1)
+        }
+    }
+
+    private fun showEditText() {
+
+        binding.apply {
+
+            tvAmount.visibility = View.INVISIBLE
+            etAmount.visibility = View.VISIBLE
         }
     }
 }

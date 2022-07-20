@@ -79,5 +79,7 @@
     <string name="consent_to_borrowing">Consent to borrowing</string>
     <string name="success_loan_detail">We’ve broken down your loan and how we will structure \nThe payment after we settle the loan</string>
     <string name="apologise">We apologise for any inconvenience. Kindly try again later</string>
+    <string name="deposit">Deposit</string>
+    <string name="enter_amount">Enter Amount</string>
 
 </resources>
