@@ -57,9 +57,9 @@
         android:hint="@string/phone_number"
         app:expandedHintEnabled="false"
         app:placeholderTextColor="@color/placeholderColor"
-        app:placeholderText="+25472345678"
-        app:helperTextEnabled="true"
-        app:helperTextTextColor="@color/helperTextColor"
+        app:placeholderText="    Eg 712345678"
+        app:prefixText="+254"
+        app:prefixTextColor="#525252"
         app:boxStrokeColor="#707070"
         app:hintTextColor="#525252"
         app:layout_constraintStart_toStartOf="parent"
@@ -70,7 +70,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:inputType="phone"
-            android:drawableStart="@drawable/ic_kenya"
             android:textColor="#525252" />
 
     </com.google.android.material.textfield.TextInputLayout>

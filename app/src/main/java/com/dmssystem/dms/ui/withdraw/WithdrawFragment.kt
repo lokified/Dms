@@ -53,7 +53,7 @@ class WithdrawFragment : Fragment() {
                     val amount = binding.etAmount.text.toString()
 
                     //show bottom sheet dialog
-                    showWithdrawalDialog(amount, "0712345678")
+                    showWithdrawalDialog(amount, "712345678")
                 }
             }
 

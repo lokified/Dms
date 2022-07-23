@@ -1,6 +1,7 @@
 package com.dmssystem.dms.util.dialogs
 
 import android.os.Bundle
+import android.text.Editable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -62,23 +63,36 @@ class DepositDialog(
 
             otherNumberBtn.setOnClickListener {
                 setOtherNumberLayout()
+
+                depositBtn.setOnClickListener {
+
+                    val phoneNumber = "254${etPhoneNumberSheet.text.toString()}"
+
+                    if (!isLayoutMyNumber) {
+                        if (validatePhoneNumberInput()) {
+
+                            binding.lPhoneNumber.error = null
+
+                            showProgressBar()
+
+                            showStkPopup(phoneNumber, amount)
+                        }
+                    }
+                    else {
+
+                        showProgressBar()
+
+                        showStkPopup(phoneNumber, amount)
+                    }
+                }
             }
 
             depositBtn.setOnClickListener {
 
                 showProgressBar()
 
-                if (!isLayoutMyNumber) {
-
-                    val phoneNumber = "254${etPhoneNumberSheet.text.toString()}"
-                    showStkPopup(phoneNumber, amount)
-                }
-
-                else {
-
-                    val phoneNumber = "254${etPhoneNumberSheet.text.toString()}"
-                    showStkPopup(phoneNumber, amount)
-                }
+                val phoneNumber = "254${etPhoneNumberSheet.text.toString()}"
+                showStkPopup(phoneNumber, amount)
             }
         }
     }
@@ -112,6 +126,7 @@ class DepositDialog(
 
             etPhoneNumberSheet.setText(contactNumber)
             etPhoneNumberSheet.isEnabled = false
+            lPhoneNumber.error = null
 
             isLayoutMyNumber = true
         }
@@ -194,5 +209,23 @@ class DepositDialog(
             depositBtn.text = "Deposit"
 
         }
+    }
+
+
+    private fun validatePhoneNumberInput(): Boolean {
+
+        if (!isPhoneValid(binding.etPhoneNumberSheet.text!!)) {
+
+            binding.lPhoneNumber.isErrorEnabled = true
+            binding.lPhoneNumber.error = "Please enter a valid phone number"
+            return false
+        }
+
+        return true
+    }
+
+    private fun isPhoneValid(text: Editable?): Boolean {
+
+        return text != null && text.length == 9
     }
 }

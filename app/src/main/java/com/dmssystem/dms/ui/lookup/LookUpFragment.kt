@@ -79,7 +79,7 @@ class LookUpFragment : Fragment() {
 
         if (!isPhoneValid(binding.etPhoneNumber.text!!)) {
             binding.lPhoneNumber.isErrorEnabled = true
-            binding.lPhoneNumber.error = "Please enter your phone number"
+            binding.lPhoneNumber.error = "Please enter a valid phone number"
             return false
         }
 
@@ -88,6 +88,6 @@ class LookUpFragment : Fragment() {
 
     private fun isPhoneValid(text: Editable?): Boolean {
 
-        return text != null && text.length == 10
+        return text != null && text.length == 9
     }
 }
