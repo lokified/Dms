@@ -3,6 +3,7 @@
     package="com.dmssystem.dms">
 
     <application
+        android:name=".DMSApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_app_logo"
         android:label="@string/app_name"

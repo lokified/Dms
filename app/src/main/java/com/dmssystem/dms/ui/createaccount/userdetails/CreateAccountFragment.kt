@@ -1,29 +1,34 @@
-package com.dmssystem.dms.ui.createaccount
+package com.dmssystem.dms.ui.createaccount.userdetails
 
 import android.os.Bundle
-import android.text.Editable
-import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
+import com.dmssystem.dms.data.local.model.User
 import com.dmssystem.dms.databinding.FragmentCreateAccountBinding
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateAccountFragment : Fragment() {
 
     private lateinit var binding: FragmentCreateAccountBinding
+    private val viewModel: UserDetailsViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentCreateAccountBinding.inflate(inflater, container, false)
+        binding = FragmentCreateAccountBinding.inflate(inflater, container, false).apply {
+            viewModel
+        }
 
         setStatusBarColor(resources.getColor(R.color.white))
 
@@ -35,29 +40,55 @@ class CreateAccountFragment : Fragment() {
 
         lightStatusBar()
 
-        binding.continueBtn.setOnClickListener {
+        binding.apply {
 
-            val firstName = binding.etFirstName.text.toString()
-            val lastName = binding.etLastName.text.toString()
-            val phoneNumber = binding.etPhoneNumber.text.toString()
+            continueBtn.setOnClickListener {
 
-            val userName = "$firstName $lastName"
+                val firstName = etFirstName.text.toString()
+                val lastName = etLastName.text.toString()
+                val phoneNumber = etPhoneNumber.text.toString()
+                val email = etEmailAddress.text.toString()
+                val idNumber = etIdNumber.text.toString()
 
-            if (validateForm()) {
+                val user = User(
+                    firstName = firstName,
+                    lastName = lastName,
+                    idNumber = idNumber,
+                    phoneNumber = "254${phoneNumber}",
+                    email = email
+                )
 
-                hideErrorMessage()
+                val userName = "$firstName $lastName"
 
-                val action =
-                    CreateAccountFragmentDirections.actionCreateAccountFragmentToSecurityQuestionsFragment(userName, phoneNumber)
-                findNavController().navigate(action)
+                if (validateForm()) {
+
+                    hideErrorMessage()
+                    saveUserDetails(user)
+                    navigateToSecurity(userName, phoneNumber)
+                }
+            }
+
+            backArrow.setOnClickListener {
+
+                findNavController().navigateUp()
             }
         }
 
-        binding.backArrow.setOnClickListener {
 
-            findNavController().navigateUp()
-        }
 
+    }
+
+    private fun saveUserDetails(user: User) {
+
+        viewModel.saveUserDetails(user)
+    }
+
+
+    private fun navigateToSecurity(userName: String, phoneNumber: String) {
+
+        val action =
+            CreateAccountFragmentDirections.actionCreateAccountFragmentToSecurityQuestionsFragment(userName, phoneNumber)
+        findNavController().navigate(action)
     }
 
 

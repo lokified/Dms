@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.createaccount.CreateAccountFragment">
+    tools:context=".ui.createaccount.userdetails.CreateAccountFragment">
 
     <ImageView
         android:id="@+id/welcome_app_icon"
@@ -159,10 +159,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textColorHint="@color/hintColor"
-        app:placeholderText="Eg.0723456789"
+        app:placeholderText="  Eg.723456789"
         app:placeholderTextColor="@color/placeholderColor"
         app:expandedHintEnabled="false"
         android:hint="Phone Number"
+        app:prefixText="+254"
         app:helperTextEnabled="true"
         app:helperTextTextColor="@color/helperTextColor"
         android:fontFamily="@font/nunito_sans"
