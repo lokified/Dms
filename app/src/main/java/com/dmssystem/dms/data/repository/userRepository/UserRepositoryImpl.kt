@@ -1,4 +1,4 @@
-package com.dmssystem.dms.data.domain.repository.userRepository
+package com.dmssystem.dms.data.repository.userRepository
 
 import com.dmssystem.dms.data.local.dao.UserDao
 import com.dmssystem.dms.data.local.model.User
