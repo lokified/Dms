@@ -2,7 +2,6 @@ package com.dmssystem.dms.data.repository
 
 import com.dmssystem.dms.data.local.model.User
 import com.dmssystem.dms.data.remote.ApiService
-import com.dmssystem.dms.data.remote.model.Login
 import com.dmssystem.dms.data.remote.model.Security
 import com.dmssystem.dms.data.remote.model.SecurityAnswer
 import javax.inject.Inject
@@ -28,5 +27,5 @@ class RegisterRepository @Inject constructor(
 
     suspend fun postSecurityAnswers(securityAnswer: SecurityAnswer) = api.postSecurityAnswers(securityAnswer)
 
-    suspend fun loginUser(login: Login) = api.loginUser(login)
+    suspend fun loginUser(pin: String) = api.loginUser(pin)
 }

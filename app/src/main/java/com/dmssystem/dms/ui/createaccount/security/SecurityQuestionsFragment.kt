@@ -9,17 +9,20 @@ import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
+import com.dmssystem.dms.data.remote.model.Security
+import com.dmssystem.dms.data.remote.model.SecurityAnswer
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
+import com.dmssystem.dms.util.*
 import com.dmssystem.dms.util.dialogs.VerifyPopup
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
 
 class SecurityQuestionsFragment : Fragment() {
 
     private lateinit var binding: FragmentSecurityQuestionsBinding
+    private val viewModel: SecurityViewModel by viewModels()
     private val args: SecurityQuestionsFragmentArgs by navArgs()
     private val popup = VerifyPopup()
 
@@ -28,9 +31,13 @@ class SecurityQuestionsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentSecurityQuestionsBinding.inflate(inflater, container, false)
+        binding = FragmentSecurityQuestionsBinding.inflate(inflater, container, false).apply {
+            viewModel
+        }
 
         setStatusBarColor(resources.getColor(R.color.white))
+        setUpQuestions()
+        setUpObservers()
 
         return binding.root
     }
@@ -40,36 +47,87 @@ class SecurityQuestionsFragment : Fragment() {
 
         lightStatusBar()
 
-        setUpQuestions()
         setUpAnswerEditText()
 
         val userName = args.userName
         val phoneNumber = args.phoneNumber
 
-        binding.continueBtn.setOnClickListener {
+        binding.apply {
 
-            if (validateForm()) {
+            continueBtn.setOnClickListener {
 
-                hideErrorMessage()
+                val answers = SecurityAnswer(
+                    etAnswerQ1.text.toString(),
+                    etAnswerQ2.text.toString(),
+                    etAnswerQ3.text.toString()
+                )
 
-                Handler().postDelayed( Runnable {
+                if (validateForm()) {
 
-                    popup.dialog.dismiss()
-                    popup.timeCountdown.cancel()
+                    hideErrorMessage()
+                    //postAnswers(answers)
 
-                    val action = SecurityQuestionsFragmentDirections.actionSecurityQuestionsFragmentToPinFragment(userName, phoneNumber)
-                    findNavController().navigate(action)
-                }, 6000)
+                    Handler().postDelayed( Runnable {
 
-                popup.createVerifyPopup(context)
-                popup.numberText.text = "We’ve sent a verification code to $phoneNumber"
-                popup.timeCountdown.start()
+                        popup.dialog.dismiss()
+                        popup.timeCountdown.cancel()
+
+                        val action = SecurityQuestionsFragmentDirections.actionSecurityQuestionsFragmentToPinFragment(userName, phoneNumber)
+                        findNavController().navigate(action)
+                    }, 6000)
+
+                    popup.createVerifyPopup(context)
+                    popup.numberText.text = "We’ve sent a verification code to $phoneNumber"
+                    popup.timeCountdown.start()
+                }
+
             }
 
+            backArrow.setOnClickListener {
+                findNavController().navigateUp()
+            }
         }
 
-        binding.backArrow.setOnClickListener {
-            findNavController().navigateUp()
+    }
+
+    private fun setUpObservers() {
+
+        viewModel.securityQuestions.observe(viewLifecycleOwner) {
+
+            //setUpQuestions(it)
+        }
+
+        viewModel.errorText.observe(viewLifecycleOwner, EventObserver {
+            showToast(it)
+        })
+    }
+
+    private fun postAnswers(answer: SecurityAnswer) {
+
+        viewModel.postAnswers(answer).observe(viewLifecycleOwner) {
+
+            binding.apply {
+
+                it.let { resource ->
+
+                    when(resource.status) {
+
+                        Status.SUCCESS -> {
+
+                            //get otp / navigate to otp screen
+                        }
+
+                        Status.ERROR -> {
+                            showToast(resource.message!!)
+                        }
+
+                        Status.LOADING -> {
+
+                            //show verify popup
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -83,9 +141,9 @@ class SecurityQuestionsFragment : Fragment() {
         )
 
         val adapter = ArrayAdapter(requireContext(), R.layout.list_security_question_layout, questions)
-        (binding.lQuestion1.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-        (binding.lQuestion2.editText as? AutoCompleteTextView)?.setAdapter(adapter)
-        (binding.lQuestion3.editText as? AutoCompleteTextView)?.setAdapter(adapter)
+        binding.etQuestion1.setAdapter(adapter)
+        binding.etQuestion2.setAdapter(adapter)
+        binding.etQuestion3.setAdapter(adapter)
     }
 
     private fun setUpAnswerEditText() {

@@ -1,14 +1,17 @@
 package com.dmssystem.dms.di
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.dmssystem.dms.data.repository.userRepository.UserRepository
 import com.dmssystem.dms.data.repository.userRepository.UserRepositoryImpl
 import com.dmssystem.dms.data.local.database.UserDatabase
 import com.dmssystem.dms.data.remote.ApiService
+import com.dmssystem.dms.util.AuthInterceptor
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -21,20 +24,13 @@ object AppModule {
 
     private const val BASE_URL = "https://7a36-2c0f-fe38-2243-7f8e-9005-5a26-d0c6-412c.eu.ngrok.io/"
 
-    private fun getOkHttpClient(): OkHttpClient.Builder =
+    private fun getOkHttpClient(context: Context): OkHttpClient.Builder =
         try{
 
             val builder = OkHttpClient.Builder()
             builder.addInterceptor {
-                val request = it.request()
-                    .newBuilder()
-                    .apply {
 
-                        addHeader("Authorization", "Bearer ")
-                    }.build()
-
-                it.proceed(request)
-
+                AuthInterceptor(context).intercept(it)
             }
             builder
         } catch(e: Exception) {
@@ -60,11 +56,11 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideRetrofitCall(): Retrofit {
+    fun provideRetrofitCall(@ApplicationContext context: Context): Retrofit {
 
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .client(getOkHttpClient().build())
+            .client(getOkHttpClient(context).build())
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

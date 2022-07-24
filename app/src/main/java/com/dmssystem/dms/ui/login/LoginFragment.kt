@@ -1,25 +1,28 @@
 package com.dmssystem.dms.ui.login
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLoginBinding
+import com.dmssystem.dms.util.Status
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.showToast
 
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private val args: LoginFragmentArgs by navArgs()
+
+    private val viewModel: LoginViewModel by viewModels()
 
     private var pin = ""
 
@@ -34,7 +37,9 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false).apply {
+            viewModel
+        }
 
         setStatusBarColor(resources.getColor(R.color.white))
 
@@ -131,11 +136,44 @@ class LoginFragment : Fragment() {
                 pin = one1 + two2 + three3 + four4
 
                 navigateToDashboard()
+                //loginUser(pin)
             }
 
         }
     }
 
+    private fun loginUser(pin: String) {
+
+        viewModel.loginUser(pin).observe(viewLifecycleOwner) {
+
+            binding.apply {
+
+                it.let { resource ->
+
+                    when(resource.status) {
+
+                        Status.SUCCESS -> {
+                            //navigateToDashboard()
+
+                            //val token = resource.data?.token
+
+                            //save token
+                        }
+
+                        Status.ERROR -> {
+
+                            showToast(resource.message ?: "something went wrong")
+                        }
+
+                        Status.LOADING -> {
+
+                            //show loading
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     private fun navigateToDashboard() {
 

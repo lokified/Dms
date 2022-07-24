@@ -11,8 +11,10 @@ import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.data.local.model.User
 import com.dmssystem.dms.databinding.FragmentCreateAccountBinding
+import com.dmssystem.dms.util.Status
 import com.dmssystem.dms.util.lightStatusBar
 import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -80,7 +82,34 @@ class CreateAccountFragment : Fragment() {
 
     private fun saveUserDetails(user: User) {
 
-        viewModel.saveUserDetails(user)
+        viewModel.saveUserDetails(user).observe(viewLifecycleOwner) {
+
+            binding.apply {
+
+                it.let { resource ->
+
+                    when(resource.status) {
+
+                        Status.SUCCESS -> {
+
+                            val userName = "${user.firstName} ${user.lastName}"
+
+                            //navigateToSecurity(userName, user.phoneNumber)
+                        }
+
+                        Status.ERROR -> {
+
+                            showToast(resource.message!!)
+                        }
+
+                        Status.LOADING -> {
+
+                            //show loading
+                        }
+                    }
+                }
+            }
+        }
     }
 
 
