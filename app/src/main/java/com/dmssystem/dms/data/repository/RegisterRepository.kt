@@ -26,6 +26,4 @@ class RegisterRepository @Inject constructor(
     }
 
     suspend fun postSecurityAnswers(securityAnswer: SecurityAnswer) = api.postSecurityAnswers(securityAnswer)
-
-    suspend fun loginUser(pin: String) = api.loginUser(pin)
 }

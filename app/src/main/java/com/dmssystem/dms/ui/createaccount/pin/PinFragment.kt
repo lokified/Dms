@@ -9,18 +9,24 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentPinBinding
 import com.dmssystem.dms.util.SharedPreferenceManager
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.Status
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
+import com.dmssystem.dms.util.extensions.showToast
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PinFragment : Fragment() {
 
     private lateinit var binding: FragmentPinBinding
     private val args: PinFragmentArgs by navArgs()
+    private val viewModel : PinViewModel by viewModels()
 
     private var pin = ""
 
@@ -38,7 +44,9 @@ class PinFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentPinBinding.inflate(inflater, container, false)
+        binding = FragmentPinBinding.inflate(inflater, container, false).apply {
+            viewModel
+        }
 
         setStatusBarColor(resources.getColor(R.color.white))
         initUI()
@@ -57,6 +65,36 @@ class PinFragment : Fragment() {
         binding.arrowBackImg.setOnClickListener {
 
             findNavController().navigateUp()
+        }
+    }
+
+    private fun updatePin(pin: String) {
+
+        viewModel.updatePin(pin).observe(viewLifecycleOwner) {
+
+            binding.apply {
+
+                it.let { resource ->
+
+                    when(resource.status) {
+
+                        Status.SUCCESS -> {
+                            navigateToLanding()
+
+                        }
+
+                        Status.ERROR -> {
+
+                            showToast(resource.message ?: "something went wrong")
+                        }
+
+                        Status.LOADING -> {
+
+                            //show loading
+                        }
+                    }
+                }
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util
+package com.dmssystem.dms.util.extensions
 
 import android.os.Build
 import android.view.View

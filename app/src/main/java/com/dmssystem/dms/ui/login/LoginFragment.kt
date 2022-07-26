@@ -2,6 +2,7 @@ package com.dmssystem.dms.ui.login
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.os.Handler
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -13,10 +14,12 @@ import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLoginBinding
 import com.dmssystem.dms.util.Status
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
-import com.dmssystem.dms.util.showToast
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
+import com.dmssystem.dms.util.extensions.showToast
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
@@ -153,9 +156,9 @@ class LoginFragment : Fragment() {
                     when(resource.status) {
 
                         Status.SUCCESS -> {
-                            //navigateToDashboard()
+                            navigateToDashboard()
 
-                            //val token = resource.data?.token
+                            val token = resource.data?.token
 
                             //save token
                         }

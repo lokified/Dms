@@ -36,6 +36,11 @@ interface ApiService {
         @Body pin: String
     ): UserResponse
 
+    @POST("api/accountLookup")
+    suspend fun accountLookUp(
+        @Body phoneNumber: String
+    ): UserResponse
+
     @POST("api/login")
     suspend fun loginUser(
         @Body pin: String

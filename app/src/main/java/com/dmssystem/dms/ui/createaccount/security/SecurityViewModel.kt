@@ -6,10 +6,12 @@ import com.dmssystem.dms.data.remote.model.SecurityAnswer
 import com.dmssystem.dms.data.repository.RegisterRepository
 import com.dmssystem.dms.util.Event
 import com.dmssystem.dms.util.Resource
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+@HiltViewModel
 class SecurityViewModel @Inject constructor(
     private val registerRepository: RegisterRepository
 ): ViewModel() {

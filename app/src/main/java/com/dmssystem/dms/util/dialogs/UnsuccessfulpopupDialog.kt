@@ -7,15 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.DenialLoanQualificationLayoutBinding
-import com.dmssystem.dms.ui.request.AuthorizeFragmentDirections
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
-import com.dmssystem.dms.util.showToast
-import com.google.android.material.bottomsheet.BottomSheetDialog
-import com.google.android.material.button.MaterialButton
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class UnsuccessfulpopupDialog: DialogFragment() {
 

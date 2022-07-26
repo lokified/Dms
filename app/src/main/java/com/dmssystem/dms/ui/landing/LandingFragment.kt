@@ -8,15 +8,14 @@ import android.view.ViewGroup
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLandingBinding
-import com.dmssystem.dms.util.darkStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.extensions.darkStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class LandingFragment : Fragment() {
 

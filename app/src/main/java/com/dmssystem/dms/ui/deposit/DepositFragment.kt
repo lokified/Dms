@@ -2,20 +2,18 @@ package com.dmssystem.dms.ui.deposit
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextWatcher
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputConnection
-import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentDepositBinding
 import com.dmssystem.dms.util.dialogs.DepositDialog
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class DepositFragment : Fragment() {
 

@@ -1,19 +1,15 @@
 package com.dmssystem.dms.ui.dashboard
 
-import android.os.Build
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.WindowManager
-import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentDashboardBinding
-import com.dmssystem.dms.util.darkStatusBar
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class DashboardFragment : Fragment() {
 

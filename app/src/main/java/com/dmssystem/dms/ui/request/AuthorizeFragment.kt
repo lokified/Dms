@@ -12,8 +12,8 @@ import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentAuthorizeBinding
 import com.dmssystem.dms.util.dialogs.SuccessPopupDialog
 import com.dmssystem.dms.util.dialogs.UnsuccessfulpopupDialog
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class AuthorizeFragment : Fragment() {
 

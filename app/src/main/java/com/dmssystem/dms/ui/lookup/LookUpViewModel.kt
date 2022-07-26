@@ -1,4 +1,4 @@
-package com.dmssystem.dms.ui.login
+package com.dmssystem.dms.ui.lookup
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
@@ -10,20 +10,20 @@ import kotlinx.coroutines.Dispatchers
 import javax.inject.Inject
 
 @HiltViewModel
-class LoginViewModel @Inject constructor(
+class LookUpViewModel @Inject constructor(
     private val loginRepository: LoginRepository
-) : ViewModel() {
+): ViewModel() {
 
-    fun loginUser(pin: String) = liveData(Dispatchers.IO) {
+    fun accountLookUp(phoneNumber: String) = liveData(Dispatchers.IO) {
 
         emit(Resource.loading(data = null))
 
         try {
 
-            emit(Resource.success(data = loginRepository.loginUser(pin)))
+            emit(Resource.success(data = loginRepository.accountLookUp(phoneNumber)))
         } catch (e: Exception) {
 
-            emit(Resource.error(message = e.message ?: "Error occurred", data = null))
+            emit(Resource.error(e.message ?: "Error occurred", data = null))
         }
     }
 }

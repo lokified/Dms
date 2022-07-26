@@ -7,18 +7,21 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
-import android.widget.AutoCompleteTextView
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
-import com.dmssystem.dms.data.remote.model.Security
 import com.dmssystem.dms.data.remote.model.SecurityAnswer
 import com.dmssystem.dms.databinding.FragmentSecurityQuestionsBinding
 import com.dmssystem.dms.util.*
 import com.dmssystem.dms.util.dialogs.VerifyPopup
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
+import com.dmssystem.dms.util.extensions.showToast
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class SecurityQuestionsFragment : Fragment() {
 
     private lateinit var binding: FragmentSecurityQuestionsBinding

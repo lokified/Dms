@@ -9,8 +9,8 @@ import android.view.Window
 import androidx.fragment.app.DialogFragment
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.ConsentBottomSheetLayoutBinding
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class ConsentPopupDialog: DialogFragment() {
 

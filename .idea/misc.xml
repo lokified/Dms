@@ -26,6 +26,7 @@
         <entry key="app/src/main/res/layout/fragment_deposit.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_loan_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_look_up.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_pin.xml" value="0.19375" />
@@ -33,6 +34,7 @@
         <entry key="app/src/main/res/layout/fragment_security_questions.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/list_security_question_layout.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/loading_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/loan_company_list_item_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/notification_item_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/onboarding_item_layout.xml" value="0.19375" />

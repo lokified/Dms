@@ -12,8 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentWithdrawBinding
 import com.dmssystem.dms.util.dialogs.WithdrawDialog
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
 
 class WithdrawFragment : Fragment() {
 

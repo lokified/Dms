@@ -12,9 +12,9 @@ import com.dmssystem.dms.R
 import com.dmssystem.dms.data.local.model.User
 import com.dmssystem.dms.databinding.FragmentCreateAccountBinding
 import com.dmssystem.dms.util.Status
-import com.dmssystem.dms.util.lightStatusBar
-import com.dmssystem.dms.util.setStatusBarColor
-import com.dmssystem.dms.util.showToast
+import com.dmssystem.dms.util.extensions.lightStatusBar
+import com.dmssystem.dms.util.extensions.setStatusBarColor
+import com.dmssystem.dms.util.extensions.showToast
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
