@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util.dialogs
+package com.dmssystem.dms.ui.dialogs
 
 import android.os.Bundle
 import android.view.LayoutInflater

@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util.dialogs
+package com.dmssystem.dms.ui.dialogs
 
 import android.app.Dialog
 import android.os.Bundle
@@ -7,16 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
+import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
-import com.dmssystem.dms.databinding.ConsentBottomSheetLayoutBinding
+import com.dmssystem.dms.databinding.SuccessLoanQualificationLayoutBinding
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 
-class ConsentPopupDialog: DialogFragment() {
+class SuccessPopupDialog: DialogFragment() {
 
-    private lateinit var binding: ConsentBottomSheetLayoutBinding
-
-    private lateinit var onContinueListener: OnContinueListener
+    private lateinit var binding: SuccessLoanQualificationLayoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,12 +24,12 @@ class ConsentPopupDialog: DialogFragment() {
     ): View {
         // Inflate the layout to use as dialog or embedded fragment
         setStatusBarColor(resources.getColor(R.color.white))
-        binding = ConsentBottomSheetLayoutBinding.inflate(inflater, container, false)
+        binding = SuccessLoanQualificationLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun getTheme(): Int {
-        return R.style.ConsentDialogTheme
+        return R.style.DialogTheme
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -40,21 +39,18 @@ class ConsentPopupDialog: DialogFragment() {
 
         binding.apply {
 
-            continueConsentBtn.setOnClickListener {
+            arrowBackSuccess.setOnClickListener {
 
-                if (consentCheckbox.isChecked) {
+                dismiss()
+            }
 
-                    //navigate to authorize
-                    onContinueListener.onClick(it)
-                    dismiss()
-                }
+            goBackBtn.setOnClickListener {
+
+                navigateToDashboard()
+                dismiss()
             }
         }
-    }
 
-    fun setOnButtonClickListener(clickListener: OnContinueListener)  {
-
-        this.onContinueListener = clickListener
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -64,8 +60,10 @@ class ConsentPopupDialog: DialogFragment() {
         return dialog
     }
 
-    interface OnContinueListener {
+    private fun navigateToDashboard() {
 
-        fun onClick(button: View)
+        val action = SuccessPopupDialogDirections.actionSuccessPopupDialogToDashboardFragment()
+        findNavController().navigate(action)
     }
+
 }

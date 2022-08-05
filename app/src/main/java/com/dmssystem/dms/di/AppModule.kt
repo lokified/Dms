@@ -8,6 +8,7 @@ import com.dmssystem.dms.data.repository.userRepository.UserRepositoryImpl
 import com.dmssystem.dms.data.local.database.UserDatabase
 import com.dmssystem.dms.data.remote.ApiService
 import com.dmssystem.dms.util.AuthInterceptor
+import com.dmssystem.dms.util.DataStoreSource
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,7 +23,7 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
-    private const val BASE_URL = "https://7a36-2c0f-fe38-2243-7f8e-9005-5a26-d0c6-412c.eu.ngrok.io/"
+    private const val BASE_URL = "https://dms-loan-api.herokuapp.com/api/"
 
     private fun getOkHttpClient(context: Context): OkHttpClient.Builder =
         try{

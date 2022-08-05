@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLoanDetailsBinding
-import com.dmssystem.dms.util.dialogs.ConsentPopupDialog
-import com.dmssystem.dms.util.dialogs.TopUpDialog
+import com.dmssystem.dms.ui.dialogs.ConsentPopupDialog
+import com.dmssystem.dms.ui.dialogs.TopUpDialog
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 

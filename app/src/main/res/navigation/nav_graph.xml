@@ -28,6 +28,11 @@
             app:argType="string"
             app:nullable="true"
             android:defaultValue="@null"/>
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
 
     </fragment>
     <fragment
@@ -44,15 +49,21 @@
         android:name="com.dmssystem.dms.ui.createaccount.security.SecurityQuestionsFragment"
         android:label="fragment_secuity_questions"
         tools:layout="@layout/fragment_security_questions" >
-        <action
-            android:id="@+id/action_securityQuestionsFragment_to_pinFragment"
-            app:destination="@id/pinFragment" />
         <argument
             android:name="userName"
             app:argType="string" />
         <argument
             android:name="phoneNumber"
             app:argType="string" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_securityQuestionsFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+        <action
+            android:id="@+id/action_securityQuestionsFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
     </fragment>
     <fragment
         android:id="@+id/pinFragment"
@@ -74,6 +85,10 @@
             app:destination="@id/landingFragment"
             app:popUpTo="@id/landingFragment"
             app:popUpToInclusive="true" />
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
     <fragment
         android:id="@+id/lookUpFragment"
@@ -83,6 +98,11 @@
         <action
             android:id="@+id/action_lookUpFragment_to_landingFragment"
             app:destination="@id/landingFragment"/>
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -104,6 +124,11 @@
         <action
             android:id="@+id/action_loginFragment_to_forgotPinFragment"
             app:destination="@id/forgotPinFragment" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
     <fragment
         android:id="@+id/dashboardFragment"
@@ -196,7 +221,7 @@
     </fragment>
     <fragment
         android:id="@+id/successPopupDialog"
-        android:name="com.dmssystem.dms.util.dialogs.SuccessPopupDialog"
+        android:name="com.dmssystem.dms.ui.dialogs.SuccessPopupDialog"
         android:label="SuccessPopupDialog"
         tools:layout="@layout/success_loan_qualification_layout">
         <action
@@ -207,7 +232,7 @@
     </fragment>
     <fragment
         android:id="@+id/unsuccessfulpopupDialog"
-        android:name="com.dmssystem.dms.util.dialogs.UnsuccessfulpopupDialog"
+        android:name="com.dmssystem.dms.ui.dialogs.UnsuccessfulpopupDialog"
         android:label="UnsuccessfulpopupDialog"
         tools:layout="@layout/denial_loan_qualification_layout">
         <action
@@ -218,7 +243,32 @@
     </fragment>
     <fragment
         android:id="@+id/consentPopupDialog"
-        android:name="com.dmssystem.dms.util.dialogs.ConsentPopupDialog"
+        android:name="com.dmssystem.dms.ui.dialogs.ConsentPopupDialog"
         android:label="ConsentPopupDialog"
         tools:layout="@layout/consent_bottom_sheet_layout"/>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.dmssystem.dms.ui.otp.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_otpFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+
+    </fragment>
 </navigation>

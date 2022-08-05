@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.createaccount.userdetails.CreateAccountFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
     <ImageView
         android:id="@+id/welcome_app_icon"
         android:layout_width="60dp"
@@ -217,13 +227,13 @@
         android:id="@+id/continue_btn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="@string/continue_string"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="24dp"
-        android:textSize="12sp"
-        android:fontFamily="@font/nunito_sans_extrabold"
         android:background="@drawable/continue_btn_bg"
+        android:fontFamily="@font/nunito_sans_extrabold"
+        android:text="@string/continue_string"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

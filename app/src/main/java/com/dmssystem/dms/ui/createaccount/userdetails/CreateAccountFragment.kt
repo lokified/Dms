@@ -1,6 +1,7 @@
 package com.dmssystem.dms.ui.createaccount.userdetails
 
 import android.os.Bundle
+import android.util.Log
 import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.data.local.model.User
 import com.dmssystem.dms.databinding.FragmentCreateAccountBinding
+import com.dmssystem.dms.util.EventObserver
 import com.dmssystem.dms.util.Status
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
@@ -56,17 +58,14 @@ class CreateAccountFragment : Fragment() {
                     firstName = firstName,
                     lastName = lastName,
                     idNumber = idNumber,
-                    phoneNumber = "254${phoneNumber}",
+                    phoneNumber = "+254${phoneNumber}",
                     email = email
                 )
-
-                val userName = "$firstName $lastName"
 
                 if (validateForm()) {
 
                     hideErrorMessage()
                     saveUserDetails(user)
-                    navigateToSecurity(userName, phoneNumber)
                 }
             }
 
@@ -92,19 +91,23 @@ class CreateAccountFragment : Fragment() {
 
                         Status.SUCCESS -> {
 
+                            progressBar.visibility = View.GONE
                             val userName = "${user.firstName} ${user.lastName}"
 
-                            //navigateToSecurity(userName, user.phoneNumber)
+                            val userId = resource.data?.id
+                            navigateToSecurity(userName, user.phoneNumber, userId!!)
                         }
 
                         Status.ERROR -> {
 
+                            progressBar.visibility = View.GONE
                             showToast(resource.message!!)
                         }
 
                         Status.LOADING -> {
 
                             //show loading
+                            progressBar.visibility = View.VISIBLE
                         }
                     }
                 }
@@ -113,10 +116,10 @@ class CreateAccountFragment : Fragment() {
     }
 
 
-    private fun navigateToSecurity(userName: String, phoneNumber: String) {
+    private fun navigateToSecurity(userName: String, phoneNumber: String, userId: Int) {
 
         val action =
-            CreateAccountFragmentDirections.actionCreateAccountFragmentToSecurityQuestionsFragment(userName, phoneNumber)
+            CreateAccountFragmentDirections.actionCreateAccountFragmentToSecurityQuestionsFragment(userName, phoneNumber, userId)
         findNavController().navigate(action)
     }
 

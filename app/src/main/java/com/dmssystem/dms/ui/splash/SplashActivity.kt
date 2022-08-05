@@ -1,9 +1,7 @@
 package com.dmssystem.dms.ui.splash
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
@@ -13,7 +11,10 @@ import androidx.core.util.Pair
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.ActivitySplashBinding
 import com.dmssystem.dms.ui.MainActivity
-import kotlin.concurrent.thread
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SplashActivity : AppCompatActivity() {
 
@@ -25,14 +26,13 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        Handler().postDelayed( Runnable {
+        CoroutineScope(Dispatchers.Main).launch {
+
+            delay(1000L)
             setAnimations()
-        }, 1000)
-
-
-        Handler().postDelayed(Runnable {
+            delay(3000L)
             navigateToMainActivity()
-        },  3000)
+        }
 
     }
 

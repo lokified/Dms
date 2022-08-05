@@ -1,48 +1,47 @@
 package com.dmssystem.dms.data.remote
 
 import com.dmssystem.dms.data.local.model.User
-import com.dmssystem.dms.data.remote.model.Security
-import com.dmssystem.dms.data.remote.model.SecurityAnswer
+import com.dmssystem.dms.data.remote.model.*
 import com.dmssystem.dms.data.remote.model.response.LoginResponse
-import com.dmssystem.dms.data.remote.model.response.OTP
 import com.dmssystem.dms.data.remote.model.response.UserResponse
 import retrofit2.http.*
 
 interface ApiService {
 
-    @POST("api/userDetails")
+    @POST("user")
     suspend fun postUserDetails(
         @Body user: User
     ): UserResponse
 
-    @GET("api/securityQuestions")
+    @GET("securityQuestions")
     suspend fun getSecurityQuestions(): List<Security>
 
-    @POST("api/securityAnswers")
+    @POST("securityAnswer")
     suspend fun postSecurityAnswers(
         @Body securityAnswer: SecurityAnswer
     ): UserResponse
 
-    @GET("api/getOTP")
-    suspend fun getOTP() : OTP
+    @POST("sendOTP")
+    suspend fun getOTP(@Body otp: Otp) : UserResponse
 
-    @GET("api/confirmOTP")
+    @POST("verifyCode")
     suspend fun confirmOTP(
-        @Body otp: OTP
+        @Body otp: OtpCode
     ): UserResponse
 
-    @PATCH("api/updatePin")
+    @PATCH("user/{id}")
     suspend fun updateNewPin(
-        @Body pin: String
+        @Body pin: Pin,
+        @Path("id") userId: Int
     ): UserResponse
 
-    @POST("api/accountLookup")
+    @POST("accountLookup/{phoneNumber}")
     suspend fun accountLookUp(
-        @Body phoneNumber: String
+        @Path("phoneNumber") phoneNumber: String
     ): UserResponse
 
-    @POST("api/login")
+    @POST("userLogin")
     suspend fun loginUser(
-        @Body pin: String
+        @Body login: Login
     ): LoginResponse
 }

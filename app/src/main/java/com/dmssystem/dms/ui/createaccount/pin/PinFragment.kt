@@ -13,6 +13,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
+import com.dmssystem.dms.data.remote.model.Pin
 import com.dmssystem.dms.databinding.FragmentPinBinding
 import com.dmssystem.dms.util.SharedPreferenceManager
 import com.dmssystem.dms.util.Status
@@ -68,35 +69,6 @@ class PinFragment : Fragment() {
         }
     }
 
-    private fun updatePin(pin: String) {
-
-        viewModel.updatePin(pin).observe(viewLifecycleOwner) {
-
-            binding.apply {
-
-                it.let { resource ->
-
-                    when(resource.status) {
-
-                        Status.SUCCESS -> {
-                            navigateToLanding()
-
-                        }
-
-                        Status.ERROR -> {
-
-                            showToast(resource.message ?: "something went wrong")
-                        }
-
-                        Status.LOADING -> {
-
-                            //show loading
-                        }
-                    }
-                }
-            }
-        }
-    }
 
     private fun initUI() {
 
@@ -189,7 +161,42 @@ class PinFragment : Fragment() {
 
         if (initialPin == confirmPin) {
 
-            navigateToLanding()
+            val pin = Pin(confirmPin!!)
+            updatePin(pin, args.userId)
+        }
+    }
+
+    private fun updatePin(pin: Pin, userId: Int) {
+
+        viewModel.updatePin(pin, userId).observe(viewLifecycleOwner) {
+
+            binding.apply {
+
+                it.let { resource ->
+
+                    when(resource.status) {
+
+                        Status.SUCCESS -> {
+                            navigateToLanding()
+                            avi.visibility = View.GONE
+
+                            showToast("${args.userName} you are registered")
+                        }
+
+                        Status.ERROR -> {
+
+                            avi.visibility = View.GONE
+                            showToast(resource.message ?: "something went wrong")
+                        }
+
+                        Status.LOADING -> {
+
+                            //show loading
+                            avi.visibility = View.VISIBLE
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -198,7 +205,7 @@ class PinFragment : Fragment() {
 
         val userName = args.userName
 
-        val action = PinFragmentDirections.actionPinFragmentToLandingFragment(true, userName)
+        val action = PinFragmentDirections.actionPinFragmentToLandingFragment(true, userName, args.phoneNumber)
         findNavController().navigate(action)
     }
 

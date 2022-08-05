@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util.dialogs
+package com.dmssystem.dms.ui.dialogs
 
 import android.app.Dialog
 import android.os.Bundle
@@ -8,14 +8,15 @@ import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
 import com.dmssystem.dms.R
-import com.dmssystem.dms.databinding.DenialLoanQualificationLayoutBinding
+import com.dmssystem.dms.databinding.ConsentBottomSheetLayoutBinding
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 
-class UnsuccessfulpopupDialog: DialogFragment() {
+class ConsentPopupDialog: DialogFragment() {
 
+    private lateinit var binding: ConsentBottomSheetLayoutBinding
 
-    private lateinit var binding: DenialLoanQualificationLayoutBinding
+    private lateinit var onContinueListener: OnContinueListener
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,12 +25,12 @@ class UnsuccessfulpopupDialog: DialogFragment() {
     ): View {
         // Inflate the layout to use as dialog or embedded fragment
         setStatusBarColor(resources.getColor(R.color.white))
-        binding = DenialLoanQualificationLayoutBinding.inflate(inflater, container, false)
+        binding = ConsentBottomSheetLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun getTheme(): Int {
-        return R.style.DialogTheme
+        return R.style.ConsentDialogTheme
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -39,11 +40,21 @@ class UnsuccessfulpopupDialog: DialogFragment() {
 
         binding.apply {
 
-            arrowBackDenial.setOnClickListener {
+            continueConsentBtn.setOnClickListener {
 
-                dismiss()
+                if (consentCheckbox.isChecked) {
+
+                    //navigate to authorize
+                    onContinueListener.onClick(it)
+                    dismiss()
+                }
             }
         }
+    }
+
+    fun setOnButtonClickListener(clickListener: OnContinueListener)  {
+
+        this.onContinueListener = clickListener
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -53,5 +64,8 @@ class UnsuccessfulpopupDialog: DialogFragment() {
         return dialog
     }
 
+    interface OnContinueListener {
 
+        fun onClick(button: View)
+    }
 }

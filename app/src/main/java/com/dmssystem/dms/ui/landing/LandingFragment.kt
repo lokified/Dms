@@ -60,12 +60,12 @@ class LandingFragment : Fragment() {
             }
 
             loginTxt.setOnClickListener {
-                val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment()
+                val action = LandingFragmentDirections.actionLandingFragmentToLookUpFragment(args.phoneNumber)
                 findNavController().navigate(action)
             }
 
             loginBtn.setOnClickListener {
-                val action = LandingFragmentDirections.actionLandingFragmentToLoginFragment(args.userName, true)
+                val action = LandingFragmentDirections.actionLandingFragmentToLoginFragment(args.userName, true, args.phoneNumber)
                 findNavController().navigate(action)
             }
         }
