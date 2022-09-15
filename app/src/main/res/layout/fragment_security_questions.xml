@@ -6,18 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".ui.createaccount.security.SecurityQuestionsFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
     <ImageView
         android:id="@+id/welcome_app_icon"
         android:layout_width="60dp"
         android:layout_height="58dp"
         android:layout_marginTop="24dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginEnd="150dp"
+        android:contentDescription="dms_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/logo_coloured"
-        android:contentDescription="dms_logo" />
+        app:srcCompat="@drawable/logo_coloured" />
 
 
     <ImageView

@@ -11,7 +11,7 @@ import android.view.inputmethod.InputConnection
 import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentWithdrawBinding
-import com.dmssystem.dms.util.dialogs.WithdrawDialog
+import com.dmssystem.dms.ui.dialogs.WithdrawDialog
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 

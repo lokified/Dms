@@ -3,6 +3,7 @@ package com.dmssystem.dms.ui.login
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +13,17 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.dmssystem.dms.R
+import com.dmssystem.dms.data.remote.model.Login
 import com.dmssystem.dms.databinding.FragmentLoginBinding
+import com.dmssystem.dms.util.DataStoreSource
 import com.dmssystem.dms.util.Status
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 import com.dmssystem.dms.util.extensions.showToast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
@@ -138,16 +144,18 @@ class LoginFragment : Fragment() {
 
                 pin = one1 + two2 + three3 + four4
 
-                navigateToDashboard()
-                //loginUser(pin)
+                //navigateToDashboard()
+                val login = Login(args.phoneNumber!!, pin)
+
+                loginUser(login)
             }
 
         }
     }
 
-    private fun loginUser(pin: String) {
+    private fun loginUser(login: Login) {
 
-        viewModel.loginUser(pin).observe(viewLifecycleOwner) {
+        viewModel.loginUser(login).observe(viewLifecycleOwner) {
 
             binding.apply {
 
@@ -156,21 +164,33 @@ class LoginFragment : Fragment() {
                     when(resource.status) {
 
                         Status.SUCCESS -> {
+                            avi.visibility = View.GONE
                             navigateToDashboard()
 
                             val token = resource.data?.token
 
                             //save token
+                            CoroutineScope(Dispatchers.Main).launch {
+
+                                DataStoreSource.saveToken(token!!, requireContext())
+                            }
+
+                            showToast("Login success")
                         }
 
                         Status.ERROR -> {
 
-                            showToast(resource.message ?: "something went wrong")
+                            avi.visibility = View.GONE
+                            if(resource.message == "HTTP 401 Unauthorized") {
+                                showToast("error loging in, check your pin")
+
+                            }
                         }
 
                         Status.LOADING -> {
 
                             //show loading
+                            avi.visibility = View.VISIBLE
                         }
                     }
                 }

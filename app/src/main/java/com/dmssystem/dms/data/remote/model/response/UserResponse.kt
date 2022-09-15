@@ -1,5 +1,7 @@
 package com.dmssystem.dms.data.remote.model.response
 
 data class UserResponse(
-    val message: String
+    val id: Int,
+    val message: String,
+    val firstName: String
 )

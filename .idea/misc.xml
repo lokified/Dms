@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/drawable/company_bg.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/dashboard_bg.xml" value="0.1465" />
         <entry key="app/src/main/res/drawable/ic_bald_man_holding_phone.xml" value="0.19" />
+        <entry key="app/src/main/res/drawable/otp_bg.xml" value="0.1735" />
         <entry key="app/src/main/res/drawable/progress_bg.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/view_bg.xml" value="0.1935" />
         <entry key="app/src/main/res/layout/account_verify_layout.xml" value="0.19375" />
@@ -21,14 +22,16 @@
         <entry key="app/src/main/res/layout/denial_loan_qualification_layout.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_another_method.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_authorize.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.22" />
         <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_deposit.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_forgot_pin.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_loan_details.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_look_up.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_otp.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_pin.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_request.xml" value="0.19375" />
         <entry key="app/src/main/res/layout/fragment_security_questions.xml" value="0.19375" />

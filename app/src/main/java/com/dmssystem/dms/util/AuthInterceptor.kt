@@ -1,6 +1,7 @@
 package com.dmssystem.dms.util
 
 import android.content.Context
+import kotlinx.coroutines.runBlocking
 import okhttp3.Interceptor
 import okhttp3.Response
 
@@ -8,9 +9,9 @@ class AuthInterceptor(
     private val context: Context
 ): Interceptor {
 
-    override fun intercept(chain: Interceptor.Chain): Response {
+    override fun intercept(chain: Interceptor.Chain): Response = runBlocking {
 
-        val token = ""
+        val token = DataStoreSource.getToken(context)
 
         val request = chain.request()
             .newBuilder().apply {
@@ -18,6 +19,6 @@ class AuthInterceptor(
             addHeader("Authorization", "Bearer $token")
         }.build()
 
-        return chain.proceed(request)
+        chain.proceed(request)
     }
 }

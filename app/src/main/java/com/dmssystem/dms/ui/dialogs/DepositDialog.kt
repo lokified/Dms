@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util.dialogs
+package com.dmssystem.dms.ui.dialogs
 
 import android.os.Bundle
 import android.text.Editable
@@ -17,8 +17,6 @@ import com.androidstudy.daraja.util.Env
 import com.androidstudy.daraja.util.TransactionType
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.BottomSheetDialogDepositLayoutBinding
-import com.dmssystem.dms.databinding.BottomSheetDialogRequestLayoutBinding
-import com.dmssystem.dms.databinding.BottomSheetDialogWithdrawLayoutBinding
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class DepositDialog(

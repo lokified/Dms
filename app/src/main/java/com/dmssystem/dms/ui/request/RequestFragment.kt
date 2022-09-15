@@ -10,8 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentRequestBinding
-import com.dmssystem.dms.util.dialogs.Popup
-import com.dmssystem.dms.util.dialogs.RegisterLoanDialog
+import com.dmssystem.dms.ui.dialogs.Popup
+import com.dmssystem.dms.ui.dialogs.RegisterLoanDialog
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 

@@ -12,11 +12,15 @@ import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
 import com.dmssystem.dms.databinding.FragmentLookUpBinding
 import com.dmssystem.dms.util.Status
-import com.dmssystem.dms.util.dialogs.VerifyPopup
+import com.dmssystem.dms.ui.dialogs.VerifyPopup
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 import com.dmssystem.dms.util.extensions.showToast
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LookUpFragment : Fragment() {
@@ -54,22 +58,13 @@ class LookUpFragment : Fragment() {
 
         binding.lookupBtn.setOnClickListener {
 
-            val phoneNumber = binding.etPhoneNumber.text.toString()
+            val phoneNumber = "+254${binding.etPhoneNumber.text.toString()}"
 
             if (validatePhoneNumberInput()) {
 
                 binding.lPhoneNumber.helperText = null
 
-                Handler().postDelayed(Runnable {
-
-                    popup.dialog.dismiss()
-                    popup.timeCountdown.cancel()
-
-                    navigateToLogin()
-                }, 5000)
-
-                //accountLookUp(phoneNumber)
-                showPopUp(phoneNumber)
+                accountLookUp(phoneNumber)
             }
 
         }
@@ -89,22 +84,32 @@ class LookUpFragment : Fragment() {
                 when(resource.status) {
 
                     Status.SUCCESS -> {
-                        dismissPopUp()
-                        navigateToLogin()
+
+                        CoroutineScope(Dispatchers.Main).launch {
+
+                            val response = resource.data
+
+                            if(response?.message == "you are already registered") {
+
+                                navigateToLogin(phoneNumber, response.firstName)
+                                delay(1000L)
+                                dismissPopUp()
+                            }
+                            else {
+                                dismissPopUp()
+                                showToast("You need to register first")
+                            }
+                        }
                     }
 
                     Status.ERROR -> {
 
-                        //show error
-                        //dismiss popup
-                        //navigate to create account
                         dismissPopUp()
                         showToast(resource.message!!)
                     }
 
                     Status.LOADING -> {
 
-                        //show popup
                         showPopUp(phoneNumber)
                     }
                 }
@@ -124,9 +129,9 @@ class LookUpFragment : Fragment() {
         popup.timeCountdown.cancel()
     }
 
-    private fun navigateToLogin() {
+    private fun navigateToLogin(phoneNumber: String, userName: String) {
 
-        val action = LookUpFragmentDirections.actionLookUpFragmentToLandingFragment(true)
+        val action = LookUpFragmentDirections.actionLookUpFragmentToLandingFragment(true, userName = userName, phoneNumber = phoneNumber)
         findNavController().navigate(action)
     }
 

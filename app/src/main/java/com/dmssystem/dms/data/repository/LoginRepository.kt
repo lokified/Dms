@@ -1,6 +1,7 @@
 package com.dmssystem.dms.data.repository
 
 import com.dmssystem.dms.data.remote.ApiService
+import com.dmssystem.dms.data.remote.model.Login
 import javax.inject.Inject
 
 class LoginRepository @Inject constructor(
@@ -9,5 +10,5 @@ class LoginRepository @Inject constructor(
 
     suspend fun accountLookUp(phoneNumber: String) = api.accountLookUp(phoneNumber)
 
-    suspend fun loginUser(pin: String) = api.loginUser(pin)
+    suspend fun loginUser(login: Login) = api.loginUser(login)
 }

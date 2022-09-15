@@ -1,4 +1,4 @@
-package com.dmssystem.dms.util.dialogs
+package com.dmssystem.dms.ui.dialogs
 
 import android.app.Dialog
 import android.os.Bundle
@@ -7,15 +7,15 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.fragment.findNavController
 import com.dmssystem.dms.R
-import com.dmssystem.dms.databinding.SuccessLoanQualificationLayoutBinding
+import com.dmssystem.dms.databinding.DenialLoanQualificationLayoutBinding
 import com.dmssystem.dms.util.extensions.lightStatusBar
 import com.dmssystem.dms.util.extensions.setStatusBarColor
 
-class SuccessPopupDialog: DialogFragment() {
+class UnsuccessfulpopupDialog: DialogFragment() {
 
-    private lateinit var binding: SuccessLoanQualificationLayoutBinding
+
+    private lateinit var binding: DenialLoanQualificationLayoutBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,7 +24,7 @@ class SuccessPopupDialog: DialogFragment() {
     ): View {
         // Inflate the layout to use as dialog or embedded fragment
         setStatusBarColor(resources.getColor(R.color.white))
-        binding = SuccessLoanQualificationLayoutBinding.inflate(inflater, container, false)
+        binding = DenialLoanQualificationLayoutBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -39,18 +39,11 @@ class SuccessPopupDialog: DialogFragment() {
 
         binding.apply {
 
-            arrowBackSuccess.setOnClickListener {
+            arrowBackDenial.setOnClickListener {
 
-                dismiss()
-            }
-
-            goBackBtn.setOnClickListener {
-
-                navigateToDashboard()
                 dismiss()
             }
         }
-
     }
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
@@ -60,10 +53,5 @@ class SuccessPopupDialog: DialogFragment() {
         return dialog
     }
 
-    private fun navigateToDashboard() {
-
-        val action = SuccessPopupDialogDirections.actionSuccessPopupDialogToDashboardFragment()
-        findNavController().navigate(action)
-    }
 
 }
