@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="app/src/main/res/drawable/another_btn_bg.xml" value="0.154" />
+        <entry key="app/src/main/res/drawable/bottom_sheet_bg.xml" value="0.1385" />
+        <entry key="app/src/main/res/drawable/company_bg.xml" value="0.1465" />
+        <entry key="app/src/main/res/drawable/dashboard_bg.xml" value="0.1465" />
+        <entry key="app/src/main/res/drawable/ic_bald_man_holding_phone.xml" value="0.19" />
+        <entry key="app/src/main/res/drawable/otp_bg.xml" value="0.1735" />
+        <entry key="app/src/main/res/drawable/progress_bg.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/view_bg.xml" value="0.1935" />
+        <entry key="app/src/main/res/layout/account_verify_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog_deposit_layout.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog_request_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog_top_up_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/bottom_sheet_dialog_withdraw_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/check_qualification_popup_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/consent_bottom_sheet_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/denial_loan_qualification_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_another_method.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_authorize.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_create_account.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_dashboard.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_deposit.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_forgot_pin.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_landing.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_loan_details.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_look_up.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_notifications.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_otp.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_pin.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_request.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_security_questions.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/fragment_withdraw.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/list_security_question_layout.xml" value="0.19322916666666667" />
+        <entry key="app/src/main/res/layout/loading_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/loan_company_list_item_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/notification_item_layout.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/onboarding_item_layout.xml" value="0.19375" />
+        <entry key="app/src/main/res/layout/radio_layout.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/success_loan_qualification_layout.xml" value="0.25" />
+      </map>
+    </option>
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>

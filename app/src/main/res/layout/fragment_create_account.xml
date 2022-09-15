@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.createaccount.userdetails.CreateAccountFragment">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/welcome_app_icon"
+        android:layout_width="60dp"
+        android:layout_height="58dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginEnd="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo_coloured"
+        android:contentDescription="dms_logo" />
+
+
+    <ImageView
+        android:id="@+id/back_arrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:src="@drawable/ic_back_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/welcome_app_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/welcome_app_icon" />
+
+    <TextView
+        android:id="@+id/create_acc_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/nunito_sans_bold"
+        android:text="@string/create_account_string"
+        android:textColor="@color/colorPrimary"
+        android:textSize="24sp"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcome_app_icon" />
+
+    <TextView
+        android:id="@+id/please_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:fontFamily="@font/nunito_sans"
+        android:text="@string/instruction_1_string"
+        android:textColor="@color/colorSecondary"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_acc_txt" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_first_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="23dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="@color/hintColor"
+        app:placeholderText="Eg.John"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:expandedHintEnabled="false"
+        android:hint="First Name"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        android:fontFamily="@font/nunito_sans"
+        app:hintTextColor="@color/hintColor"
+        app:boxStrokeColor="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/please_txt">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_first_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:textColor="#525252" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_last_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="@color/hintColor"
+        android:hint="Last Name"
+        app:placeholderText="Eg.Doe"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:expandedHintEnabled="false"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        android:fontFamily="@font/nunito_sans"
+        app:hintTextColor="@color/hintColor"
+        app:boxStrokeColor="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_first_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_last_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPersonName"
+            android:textColor="#525252" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_id_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="@color/hintColor"
+        android:hint="ID Number"
+        app:placeholderText="Eg.12345678"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:expandedHintEnabled="false"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        android:fontFamily="@font/nunito_sans"
+        app:hintTextColor="@color/hintColor"
+        app:boxStrokeColor="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_last_name">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_id_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="number"
+            android:textColor="#525252" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_phone_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="@color/hintColor"
+        app:placeholderText="  Eg.723456789"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:expandedHintEnabled="false"
+        android:hint="Phone Number"
+        app:prefixText="+254"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        android:fontFamily="@font/nunito_sans"
+        app:hintTextColor="@color/hintColor"
+        app:boxStrokeColor="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_id_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:textColor="#525252" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/l_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:textColorHint="@color/hintColor"
+        android:hint="Email address"
+        app:placeholderText="Eg.name@gmail.com"
+        app:placeholderTextColor="@color/placeholderColor"
+        app:expandedHintEnabled="false"
+        app:helperTextEnabled="true"
+        app:helperTextTextColor="@color/helperTextColor"
+        android:fontFamily="@font/nunito_sans"
+        app:hintTextColor="@color/hintColor"
+        app:boxStrokeColor="@color/colorSecondary"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/l_phone_number">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textEmailAddress"
+            android:textColor="#525252" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/continue_btn"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/continue_btn_bg"
+        android:fontFamily="@font/nunito_sans_extrabold"
+        android:text="@string/continue_string"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

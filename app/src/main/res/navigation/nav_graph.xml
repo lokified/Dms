@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/landingFragment">
+
+    <fragment
+        android:id="@+id/landingFragment"
+        android:name="com.dmssystem.dms.ui.landing.LandingFragment"
+        android:label="fragment_landing"
+        tools:layout="@layout/fragment_landing" >
+        <action
+            android:id="@+id/action_landingFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_lookUpFragment"
+            app:destination="@id/lookUpFragment" />
+        <action
+            android:id="@+id/action_landingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <argument
+            android:name="showLoginLayout"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.userdetails.CreateAccountFragment"
+        android:label="fragment_create_account"
+        tools:layout="@layout/fragment_create_account" >
+        <action
+            android:id="@+id/action_createAccountFragment_to_securityQuestionsFragment"
+            app:destination="@id/securityQuestionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/securityQuestionsFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.security.SecurityQuestionsFragment"
+        android:label="fragment_secuity_questions"
+        tools:layout="@layout/fragment_security_questions" >
+        <argument
+            android:name="userName"
+            app:argType="string" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="userId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_securityQuestionsFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+        <action
+            android:id="@+id/action_securityQuestionsFragment_to_otpFragment"
+            app:destination="@id/otpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/pinFragment"
+        android:name="com.dmssystem.dms.ui.createaccount.pin.PinFragment"
+        android:label="PinFragment"
+        tools:layout="@layout/fragment_pin">
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <action
+            android:id="@+id/action_pinFragment_to_landingFragment"
+            app:destination="@id/landingFragment"
+            app:popUpTo="@id/landingFragment"
+            app:popUpToInclusive="true" />
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/lookUpFragment"
+        android:name="com.dmssystem.dms.ui.lookup.LookUpFragment"
+        android:label="fragment_look_up"
+        tools:layout="@layout/fragment_look_up" >
+        <action
+            android:id="@+id/action_lookUpFragment_to_landingFragment"
+            app:destination="@id/landingFragment"/>
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dmssystem.dms.ui.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="islandingFragment"
+            app:argType="boolean"
+            android:defaultValue="false" />
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPinFragment"
+            app:destination="@id/forgotPinFragment" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.dmssystem.dms.ui.dashboard.DashboardFragment"
+        android:label="fragment_dashboard"
+        tools:layout="@layout/fragment_dashboard" >
+        <action
+            android:id="@+id/action_dashboardFragment_to_requestFragment"
+            app:destination="@id/requestFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_withdrawFragment"
+            app:destination="@id/withdrawFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_depositFragment"
+            app:destination="@id/depositFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/requestFragment"
+        android:name="com.dmssystem.dms.ui.request.RequestFragment"
+        android:label="fragment_request"
+        tools:layout="@layout/fragment_request" >
+        <action
+            android:id="@+id/action_requestFragment_to_loanDetailsFragment"
+            app:destination="@id/loanDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/withdrawFragment"
+        android:name="com.dmssystem.dms.ui.withdraw.WithdrawFragment"
+        android:label="fragment_withdraw"
+        tools:layout="@layout/fragment_withdraw" />
+    <fragment
+        android:id="@+id/depositFragment"
+        android:name="com.dmssystem.dms.ui.deposit.DepositFragment"
+        android:label="fragment_deposit"
+        tools:layout="@layout/fragment_deposit" />
+    <fragment
+        android:id="@+id/forgotPinFragment"
+        android:name="com.dmssystem.dms.ui.forgotpin.ForgotPinFragment"
+        android:label="fragment_forgot_pin"
+        tools:layout="@layout/fragment_forgot_pin" >
+        <action
+            android:id="@+id/action_forgotPinFragment_to_anotherMethodFragment"
+            app:destination="@id/anotherMethodFragment" />
+        <action
+            android:id="@+id/action_forgotPinFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/anotherMethodFragment"
+        android:name="com.dmssystem.dms.ui.forgotpin.AnotherMethodFragment"
+        android:label="fragment_another_method"
+        tools:layout="@layout/fragment_another_method" >
+        <action
+            android:id="@+id/action_anotherMethodFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.dmssystem.dms.ui.notifications.NotificationsFragment"
+        android:label="fragment_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/loanDetailsFragment"
+        android:name="com.dmssystem.dms.ui.request.LoanDetailsFragment"
+        android:label="fragment_loan_details"
+        tools:layout="@layout/fragment_loan_details" >
+        <action
+            android:id="@+id/action_loanDetailsFragment_to_authorizeFragment"
+            app:destination="@id/authorizeFragment" />
+        <action
+            android:id="@+id/action_loanDetailsFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/authorizeFragment"
+        android:name="com.dmssystem.dms.ui.request.AuthorizeFragment"
+        android:label="fragment_authorize"
+        tools:layout="@layout/fragment_authorize" >
+        <action
+            android:id="@+id/action_authorizeFragment_to_successPopupDialog"
+            app:destination="@id/successPopupDialog" />
+        <action
+            android:id="@+id/action_authorizeFragment_to_unsuccessfulpopupDialog"
+            app:destination="@id/unsuccessfulpopupDialog" />
+    </fragment>
+    <fragment
+        android:id="@+id/successPopupDialog"
+        android:name="com.dmssystem.dms.ui.dialogs.SuccessPopupDialog"
+        android:label="SuccessPopupDialog"
+        tools:layout="@layout/success_loan_qualification_layout">
+        <action
+            android:id="@+id/action_successPopupDialog_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/unsuccessfulpopupDialog"
+        android:name="com.dmssystem.dms.ui.dialogs.UnsuccessfulpopupDialog"
+        android:label="UnsuccessfulpopupDialog"
+        tools:layout="@layout/denial_loan_qualification_layout">
+        <action
+            android:id="@+id/action_unsuccessfulpopupDialog_to_dashboardFragment"
+            app:destination="@id/dashboardFragment"
+            app:popUpTo="@id/dashboardFragment"
+            app:popUpToInclusive="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/consentPopupDialog"
+        android:name="com.dmssystem.dms.ui.dialogs.ConsentPopupDialog"
+        android:label="ConsentPopupDialog"
+        tools:layout="@layout/consent_bottom_sheet_layout"/>
+    <fragment
+        android:id="@+id/otpFragment"
+        android:name="com.dmssystem.dms.ui.otp.OtpFragment"
+        android:label="fragment_otp"
+        tools:layout="@layout/fragment_otp" >
+
+        <argument
+            android:name="userName"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="phoneNumber"
+            app:argType="string"
+            app:nullable="true"
+            android:defaultValue="@null" />
+        <argument
+            android:name="userId"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <action
+            android:id="@+id/action_otpFragment_to_pinFragment"
+            app:destination="@id/pinFragment" />
+
+    </fragment>
+</navigation>
