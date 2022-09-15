@@ -27,6 +27,14 @@ Android app to pay loan and maintain a high credit score. All you need is to cre
 * Retrofit - for network calls
 ## Demo
 ### screenshots
+<p align="center">
+<img src="https://user-images.githubusercontent.com/87479198/190394583-be571f89-3419-48eb-b594-6495fd22b069.png" width=30% height=30% >
+<img src="https://user-images.githubusercontent.com/87479198/190394615-fdc53133-3dc9-41ff-b168-6cdf6009225b.png" width=30% height=30% >
+<img src="https://user-images.githubusercontent.com/87479198/190394635-3038929a-70cb-4e55-9476-af03c23df1e6.png" width=30% height=30% >
+<img src="https://user-images.githubusercontent.com/87479198/190394646-86da8430-ce37-4955-b971-ee5abe373ba6.png" width=30% height=30% >
+</p>
+
+
 
 
 ## Support and contact details
